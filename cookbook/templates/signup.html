@@ -1,15 +1,51 @@
 {% extends "base.html" %}
 
 {% block title %}
-Sign up
+Sign Up
 {% endblock %}
 
 {% block pageheader %}
-Please register here
+Sign Up
 {% endblock %}
 
 {% block content %}
-
-   Sign up form
+    <!-- Log in form -->
+   <form class="col s12">
+       <div class="row">
+            <div class="input-field col s5 offset-s1">
+                <input type="text" name="fname" class="validate" required>
+                <label class="active" for="fname">First Name</label>
+            </div>
+            <div class="input-field col s5">
+                <input type="email" name="lname" class="validate" required>
+                <label class="active" for="lname">Last Name</label>
+            </div>
+        </div>
+       <div class="row">
+            <div class="input-field col s5 offset-s1">
+                <input type="text" name="mobile" class="validate">
+                <label class="active" for="mobile">Mobile (Optional)</label>
+            </div>
+            <div class="input-field col s5">
+                <input type="email" name="email" class="validate" required>
+                <label class="active" for="email">Email</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s5 offset-s1">
+                <input type="password" name="password1" class="validate" required>
+                <label class="active" for="password1">Password</label>
+            </div>
+            <div class="input-field col s5">
+                <input type="password" name="password2" class="validate" required>
+                <label class="active" for="password2">Confirm Password</label>
+            </div>
+        </div>
+        <div class="row center-align">
+            <button>
+                <a class="waves-effect waves-light btn align-center">Sign up</a>
+            </button>
+        </div>
+    </form>
 
 {% endblock %}
