@@ -3,7 +3,7 @@ from flask import render_template, Blueprint
 
 auth = Blueprint('auth', __name__)
 
-@auth.route('/login')
+@auth.route('/login', methods=['GET', 'POST'])
 def login():
     return render_template("login.html")
 
@@ -13,6 +13,6 @@ def logout():
     return "<p>logout function</p>"
 
 
-@auth.route('/signup')
+@auth.route('/signup', methods=['GET', 'POST'])
 def signup():
     return render_template("signup.html")
