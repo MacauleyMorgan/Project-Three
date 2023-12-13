@@ -8,6 +8,7 @@
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
@@ -41,6 +42,12 @@
         {% endblock %}
 
     </main>
+
+    <footer class="page-footer teal darken-2">
+        <div class="footer-copyright container hide-on-small-only">
+            <h6>Made for educational purposes only</p>
+        </div>
+    </footer>
 
     <!-- Materialize scripts, all content to be above here -->
 
