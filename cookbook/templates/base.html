@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cookbook</title>
+    <title> {% block title %} Home {% endblock %}</title>
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -33,9 +33,13 @@
         </a></li>
     </ul>
 
-    {% block content %}
+    <main>
 
-    {% endblock %}
+        {% block content %}
+    
+        {% endblock %}
+
+    </main>
 
     <!-- Materialize scripts, all content to be above here -->
 
