@@ -26,14 +26,14 @@ def login():
                 flash('Incorrect password!', category='error')
         else:
             flash('Email is not in database!', category='error')
-    return render_template("login.html")
+    return render_template('login.html')
 
 
 @auth.route('/logout')
 @login_required
 def logout():
     logout_user(user)
-    return redirect(url_for(auth.login))
+    return redirect(url_for('login.html'))
 
 
 @auth.route('/signup', methods=['GET', 'POST'])
@@ -68,5 +68,4 @@ def signup():
             login_user(user, remember=True)
             return redirect(url_for('routes.home'))
             flash('Welcome aboard!', category='success')
-
     return render_template("signup.html")
