@@ -1,5 +1,7 @@
-from cookbook import app
-from flask import render_template, Blueprint, request, flash
+from cookbook import app, db
+from flask import render_template, Blueprint, request, flash, redirect, url_for
+from .models import User
+from werkzeug.security import generate_password_hash, check_password_hash
 
 auth = Blueprint('auth', __name__)
 
@@ -33,8 +35,6 @@ def signup():
         email = request.form.get('email')
         password1 = request.form.get('password1')
         password2 = request.form.get('password2')
-        user = [first_name, last_name, mobile, email, password1, password2]
-        print(user)
         if len(first_name) < 2:
             flash('Your first name must be longer than 1 letter', category='error')
         elif len(last_name) < 2:
@@ -44,5 +44,11 @@ def signup():
         elif len(password1) < 3:
             flash('Your password should be longer than 3 characters!')
         else:
+            new_user = User(first_name=first_name, last_name=last_name, mobile=mobile, email=email, password=generate_password_hash(password1, method='sha256'))
+            print(new_user)
+            db.session.add(new_user)
+            db.session.commit()
             flash('Welcome aboard!', category='success')
+            return redirect(url_for('routes.home'))
+
     return render_template("signup.html")
