@@ -48,7 +48,7 @@ def signup():
             print(new_user)
             db.session.add(new_user)
             db.session.commit()
-            flash('Welcome aboard!', category='success')
             return redirect(url_for('routes.home'))
+            flash('Welcome aboard!', category='success')
 
     return render_template("signup.html")
