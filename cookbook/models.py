@@ -1,6 +1,7 @@
 from cookbook import db
+from flask_login import UserMixin
 
-class User(db.Model):
+class User(db.Model, UserMixin):
     # Schema for the users of the site
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String, nullable=False)
