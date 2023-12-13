@@ -1,5 +1,5 @@
 from cookbook import app
-from flask import render_template, Blueprint, request
+from flask import render_template, Blueprint, request, flash
 
 auth = Blueprint('auth', __name__)
 
@@ -35,4 +35,16 @@ def signup():
         password2 = request.form.get('password2')
         user = [first_name, last_name, mobile, email, password1, password2]
         print(user)
+        if len(first_name) < 2:
+            flash('Your first name must be longer than 1 letter', category='error')
+        elif len(last_name) < 2:
+            pass
+            flash('Your last name must be longer than 1 letter', category='error')
+        elif password1 != password2:
+            pass
+            flash('Passwords do not match!', category='error')
+        elif password1 < 3:
+            flash('Your password should be longer than 3 characters!')
+        else:
+            flash('Welcome aboard!', category='success')
     return render_template("signup.html")
