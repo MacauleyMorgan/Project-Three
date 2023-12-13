@@ -16,8 +16,8 @@
     <!-- Navbar -->
     <nav>
         <div class="nav-wrapper teal darken-2">
-            <a href="#!" class="brand-logo">Mac's Cookbook</a>
-            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons"><i class="fa fa-bars" aria-hidden="true"></i></i></a>
+            <a href="#" class="brand-logo">Mac's Cookbook</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons"><i class="fa fa-bars" aria-hidden="true"></i></i>X</a>
             <ul class="right hide-on-med-and-down">
                 <li><a href="{{ url_for('auth.login' )}}">Login <i class="fa fa-lock" aria-hidden="true"></i>
                 </a></li>
@@ -38,7 +38,7 @@
     <!-- Main content block to be injected inside this container -->
     <main class="container">
         <!-- Gets pageheader off of template page -->
-        <h2 class="center-align">{% block pageheader %}Base{% endblock %}</h2>
+        <h1 class="center-align">{% block pageheader %}Base{% endblock %}</h1>
         {% block content %}
     
         {% endblock %}
