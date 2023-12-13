@@ -12,25 +12,25 @@ Log In
 
 <!-- Injects content into the page -->
 {% block content %}
-    <!-- Log in form -->
-   <form class="col s12" method="POST">
-        <div class="row">
-            <div class="input-field col s4 offset-s4">
-                <input type="email" name="email" class="validate" required>
-                <label class="active" for="email">Email</label>
-            </div>
+<!-- Log in form -->
+<form class="col s12" method="POST">
+    <div class="row">
+        <div class="input-field col s4 offset-s4">
+            <input type="email" name="email" class="validate" required>
+            <label class="active" for="email">Email</label>
         </div>
-        <div class="row">
-            <div class="input-field col s4 offset-s4">
-                <input type="password" name="password" class="validate" required>
-                <label class="active" for="password">Password</label>
-            </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s4 offset-s4">
+            <input type="password" name="password" class="validate" required>
+            <label class="active" for="password">Password</label>
         </div>
-        <div class="row center-align">
-            <button>
-                <a class="waves-effect waves-light btn-large align-center">Log In</a>
-            </button>
-        </div>
-    </form>
+    </div>
+    <div class="row center-align">
+        <button>
+            <a class="waves-effect waves-light btn-large align-center">Log In</a>
+        </button>
+    </div>
+</form>
 
 {% endblock %}
