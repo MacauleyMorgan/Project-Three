@@ -18,9 +18,9 @@
             <a href="#!" class="brand-logo">Mac's Cookbook</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons"><i class="fa fa-bars" aria-hidden="true"></i></i></a>
             <ul class="right hide-on-med-and-down">
-                <li><a href="sass.html">Login <i class="fa fa-lock" aria-hidden="true"></i>
+                <li><a href="{{ url_for('auth.login' )}}">Login <i class="fa fa-lock" aria-hidden="true"></i>
                 </a></li>
-                <li><a href="badges.html">Register <i class="fa fa-plus" aria-hidden="true"></i>
+                <li><a href="{{ url_for('auth.signup' )}}">Register <i class="fa fa-plus" aria-hidden="true"></i>
                 </a></li>
             </ul>
         </div>
@@ -28,9 +28,9 @@
 
     <!-- Hamburger Menu on mobile devices -->
     <ul class="sidenav" id="mobile-demo">
-        <li><a href="sass.html">Login <i class="fa fa-lock black-text" aria-hidden="true"></i>
+        <li><a href="{{ url_for('auth.login' )}}">Login <i class="fa fa-lock black-text" aria-hidden="true"></i>
         </a></li>
-        <li><a href="badges.html">Register <i class="fa fa-plus black-text" aria-hidden="true"></i>
+        <li><a href="{{ url_for('auth.signup' )}}">Register <i class="fa fa-plus black-text" aria-hidden="true"></i>
         </a></li>
     </ul>
 
