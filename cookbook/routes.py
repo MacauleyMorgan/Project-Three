@@ -1,5 +1,5 @@
-from cookbook import app
-from cookbook import User, Recipes
+from cookbook import app, db
+from cookbook.models import User, Recipes
 from flask import render_template, Blueprint
 
 routes = Blueprint('routes', __name__)

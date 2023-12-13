@@ -23,7 +23,7 @@ class Recipes(db.Model):
     # Schema for recipes of each user
     id = db.Column(db.Integer, primary_key=True)
     # Recipe name is not unique due to plan to add Account name on end of entry on the front end
-    recipe_name = db.Column(db.String, db.ForeignKey('user.id'), nullable=False, ondelete=('CASCADE'))
+    recipe_name = db.Column(db.String, db.ForeignKey('user.email', ondelete='CASCADE'), nullable=False)
     # Recipe time, will specify intention to record time in minutes
     recipe_time = db.Column(db.Integer, nullable=False)
     recipe_ingredients = db.Column(db.String, nullable=False)
