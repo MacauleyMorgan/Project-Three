@@ -1,7 +1,8 @@
-from flask import render_template
-from cookbook import app, db
+from cookbook import app
+from flask import render_template, Blueprint
 
+routes = Blueprint('routes', __name__)
 
-@app.route("/")
+@routes.route('/')
 def home():
     return render_template("base.html")
