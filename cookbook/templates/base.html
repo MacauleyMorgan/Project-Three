@@ -17,12 +17,13 @@
     <nav>
         <div class="nav-wrapper teal darken-2">
             <a href="#" class="brand-logo">Mac's Cookbook</a>
-            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons"><i class="fa fa-bars" aria-hidden="true"></i></i>X</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons"><i
+                        class="fa fa-bars" aria-hidden="true"></i></i>X</a>
             <ul class="right hide-on-med-and-down">
                 <li><a href="{{ url_for('auth.login' )}}">Login <i class="fa fa-lock" aria-hidden="true"></i>
-                </a></li>
+                    </a></li>
                 <li><a href="{{ url_for('auth.signup' )}}">Sign Up <i class="fa fa-plus" aria-hidden="true"></i>
-                </a></li>
+                    </a></li>
             </ul>
         </div>
     </nav>
@@ -30,17 +31,36 @@
     <!-- Hamburger Menu on mobile devices -->
     <ul class="sidenav" id="mobile-demo">
         <li><a href="{{ url_for('auth.login' )}}">Login <i class="fa fa-lock black-text" aria-hidden="true"></i>
-        </a></li>
+            </a></li>
         <li><a href="{{ url_for('auth.signup' )}}">Sign Up <i class="fa fa-plus black-text" aria-hidden="true"></i>
-        </a></li>
+            </a></li>
     </ul>
+
+    <!-- Area for flashed messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <!-- Modal trigger -->
+    <a class="waves-effect waves-light btn modal-trigger red darken-1" href="#modal1">Error, click here to view</a>
+    {% for message in messages %}
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            {{ message }}
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+        </div>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
 
     <!-- Main content block to be injected inside this container -->
     <main class="container">
         <!-- Gets pageheader off of template page -->
         <h1 class="center-align">{% block pageheader %}Base{% endblock %}</h1>
         {% block content %}
-    
+
         {% endblock %}
 
     </main>
@@ -61,6 +81,9 @@
     <script>
         $(document).ready(function () {
             $('.sidenav').sidenav();
+        });
+        $(document).ready(function () {
+            $('.modal').modal();
         });
     </script>
 </body>
