@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title injected by templates -->
     <title> {% block title %}Home {% endblock %}</title>
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -34,8 +35,9 @@
         </a></li>
     </ul>
 
+    <!-- Main content block to be injected inside this container -->
     <main class="container">
-
+        <!-- Gets pageheader off of template page -->
         <h2 class="center-align">{% block pageheader %}Base{% endblock %}</h2>
         {% block content %}
     
@@ -43,6 +45,7 @@
 
     </main>
 
+    <!-- Footer for document, hidden when not on desktop -->
     <footer class="teal darken-2 hide-on-med-and-down footer-copyright">
         <div class="white-text footer-text">
             <h6>Made for educational purposes only</p>
