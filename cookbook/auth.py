@@ -19,6 +19,7 @@ def login():
         if user:
             if check_password_hash(user.password, password):
                 flash('Successful log in!', category='success')
+                return redirect(url_for('routes.home'))
             else:
                 flash('Incorrect password!', category='error')
         else:
