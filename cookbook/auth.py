@@ -13,8 +13,16 @@ def login():
         """
         email = request.form.get('email')
         password = request.form.get('password')
-        submission = [email, password]
-        print(submission)
+        
+        # Check if email exists
+        user = User.query.filter_by(email=email).first()
+        if user:
+            if check_password_hash(user.password, password):
+                flash('Successful log in!', category='success')
+            else:
+                flash('Incorrect password!', category='error')
+        else:
+            flash('Email is not in database!', category='error')
     return render_template("login.html")
 
 
