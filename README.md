@@ -38,6 +38,11 @@ The Materialize Framework was also used in the form of JQuery to initialize some
 The Flask Framework was used to create and initialise the app in order to run the server and to navigate through the site using routing and login functionality.
 ### Jinja Templating
 Jinja Templating was used alongside Flask modules in order to create Python implementation in the html files rendered by the app
+## External utility
+### Font Awesome
+Font Awesome was used to generate icons for the website and to style the links in a more reader friendly fashion
+### Favicon
+A Favicon was generated to display a recognisable icon in the browser tab in order to be more user friendly on the front end
 
 # Deployment
 ## GitHub version control
