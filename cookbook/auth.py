@@ -50,7 +50,7 @@ def signup():
         password2 = request.form.get('password2')
 
         user_already_exists = User.query.filter_by(email=email).first()
-        if user:
+        if user_already_exists:
             flash('An account already exists using this email!', category='error')
         elif len(first_name) < 2:
             flash('Your first name must be longer than 1 letter', category='error')
