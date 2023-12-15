@@ -1,13 +1,24 @@
 # Milestone Project Three - Macs Cookbook
 # User Stories
-## First time users
-## Returning users
-## Frequent users
+## Site ownership goals
+The site was created for a fictional owner who requires a cookbook app for users to log in and share recipes for a community culinary experience.
+## Visitor/User Goals
+### Logged in user goals
+### Logged out user goals
+### Logged in admin goals
 # Features
 ## Site wide
+## Pre Login
 ## Home Page
 ## Account Page
+## Admin Features
 ## Features left to implement
+## Error Pages
+## CRUD Functions
+### Create
+### Read
+### Update
+### Delete
 
 # Wireframes
 ## Base.html
