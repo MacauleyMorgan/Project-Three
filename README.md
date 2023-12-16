@@ -75,9 +75,19 @@ The user can delete the account from the website permanently
 
 # Wireframes
 ## Login
+Wire frames of the login page were created to provide a positive user experience, offering clear contrasts and large font sizes with minimal clutter
 ## Sign Up
+The sign up page wireframe was created with the idea of keeping the screen clutter free and easy to read.
 ## Home
+The home wireframe was designed to allow for a display of community recipes and allow the user to browse freely for inspiration
+## Recipes
+The recipes page wireframe was designed to show the users recipes in a clear and uncluttered manner offering good contrast ratios and easy to read buttons
+## Add a recipe
+The add a recipe form was created with the intention of allowing the user to upload recipes in a simple manner providing the necessary information alongside verification of the submission
+## Edit a recipe
+The edit page was designed to be clear and concise with one form only. allowing the user to focus on the editing with minimal distractions
 ## Account
+The account page was designed to be collapsible to allow for minimal screen clutter when filling out forms in the page
 
 # Entity Relationship Diagram & Flow Chart
 # Testing
