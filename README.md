@@ -4,7 +4,23 @@
 The site was created for a fictional owner who requires a cookbook app for users to log in and share recipes for a community culinary experience.
 ## Visitor/User Goals
 ### Logged in user goals
+
+As a logged in user, I would like to be able to contribute my own recipes to the site
+
+As a logged in user, I would like to be able to adjust and delete the recipes I have submitted on the website at my own leisure
+
+As a logged in user, I would like the flexibility to change my email and password when I need to
+
+As a logged in user I would like to be able to navigate around the site structure easily and understand the layout of the site instictively
+
+As a logged user, I would like to be able to delete my account if I decide to leave the site at a later date
+
 ### Logged out user goals
+
+As a logged out user, I would like to be able to access the register page to create an account and get feedback based on a successful registration
+
+As a logged out user, I would like to be able to sign in and access the site
+
 ### Logged in admin goals
 # Features
 ## Site wide
