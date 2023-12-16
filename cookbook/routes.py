@@ -27,7 +27,7 @@ def add_recipe():
         elif len(recipe_ingredients) < 1:
             flash('Recipe ingredients not provided', category='error')
         else: 
-            recipe = Recipes(recipe_name=recipe_name, recipe_time=recipe_time, recipe_ingredients=recipe_ingredients, recipe_image=recipe_image, recipe_steps=recipe_steps, user_id=current_user.id)
+            recipe = Recipes(id=current_user.id, name=recipe_name, recipe_time=recipe_time, recipe_ingredients=recipe_ingredients, recipe_image=recipe_image, recipe_steps=recipe_steps, user_id=current_user.id)
             print(recipe)
             db.session.add(recipe)
             db.session.commit()
@@ -40,7 +40,7 @@ def add_recipe():
 @routes.route('recipes', methods=['GET', 'POST'])
 @login_required
 def recipes():
-    recipes = list(Recipes.query.order_by(Recipes).all())
+    recipes = list(Recipes.query.order_by(Recipes.name).all())
     return render_template("recipes.html", recipes=recipes)
 
 

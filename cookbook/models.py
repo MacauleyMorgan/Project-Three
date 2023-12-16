@@ -22,9 +22,9 @@ class User(db.Model, UserMixin):
 
 
 class Recipes(db.Model):
+    # Recipe id
+    id = db.Column(db.Integer, primary_key=True)
     # Recipe name
-    id = db.Column(db.String, nullable=False, primary_key=True)
-    # Recipe time, will specify intention to record time in minutes
     name = db.Column(db.String, nullable=False)
     # Recipe time, will specify intention to record time in minutes
     recipe_time = db.Column(db.Integer, nullable=False)
@@ -40,4 +40,4 @@ class Recipes(db.Model):
 
     def __repr__(self):
         # represents itself as a string
-        return f"Name:{self.recipe_name} Time:{self.recipe_time} Ingredients:{self.recipe_ingredients} Steps:{self.recipe_steps} Owner: {self.user_id}"
+        return f"Name:{self.name} Time:{self.recipe_time} Ingredients:{self.recipe_ingredients} Steps:{self.recipe_steps} Owner: {self.user_id}"
