@@ -33,6 +33,7 @@ To ensure no accidental deletions of the recipes, a modal has been implemented r
 ## CRUD Functions
 ### Create
 Sign In function
+
 Create recipe function
 ### Read
 Reads database to filter all recipes to home page
@@ -95,5 +96,7 @@ A Favicon was generated to display a recognisable icon in the browser tab in ord
 ## Deployment to Heroku
 
 # Credits / Acknowledgements
+## Books
+During the creation of this site I used the book "Building Web Apps with Python and Flask" by Malhar Lathkar for help troubleshooting and general tips on creating the site
 
 Site made for educational purposes only for assessment by Code Institute
