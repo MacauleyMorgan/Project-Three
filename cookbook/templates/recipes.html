@@ -2,7 +2,7 @@
 
 <!-- Injects window title into the page -->
 {% block title %}
-Account
+Recipes
 {% endblock %}
 
 <!-- Injects h2 title into the page -->
@@ -26,10 +26,19 @@ Your Recipes
         </div>
         <div class="card-action">
           <a href="{{ url_for('routes.edit_recipe', recipe_id=recipe.id) }}" class="btn green darken-1">Edit</a>
-          <a href="#" class="btn red darken-1">Delete</a>
+            <!-- Modal Trigger -->
+          <a class="waves-effect waves-light btn modal-trigger red darken-2" href="#modal-{{recipe.id}}">Delete</a>
         </div>
       </div>
     </div>
+
+  <!-- Modal Structure -->
+  <div id="modal-{{recipe.id}}" class="modal">
+    <div class="modal-content">
+      <p>Are you sure you would like to delete?</p>
+      <a href="{{ url_for('routes.delete_recipe', recipe_id=recipe.id) }}" class="btn red darken-1">Delete</a>
+    </div>
+  </div>
     {% endfor %}
   </div>
 
