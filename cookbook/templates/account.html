@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+<!-- Injects window title into the page -->
+{% block title %}
+Account
+{% endblock %}
+
+<!-- Injects h2 title into the page -->
+{% block pageheader %}
+Account
+{% endblock %}
+
+<!-- Injects content into the page -->
+{% block content %}
+
+Welcome to your account {{current_user.first_name}}
+<!-- Display all recipes on site -->
+
+{% endblock %}

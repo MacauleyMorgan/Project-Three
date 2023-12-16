@@ -44,7 +44,7 @@ def recipes():
     return render_template("recipes.html", recipes=recipes)
 
 
-@routes.route('account', methods=['GET', 'POST'])
+@routes.route('account')
 @login_required
 def account():
     return render_template("account.html", recipes=recipes)
