@@ -10,10 +10,9 @@ routes = Blueprint('routes', __name__)
 def home():
     return render_template("home.html")
 
-
-@routes.route('account', methods=['GET', 'POST'])
-@login_required
-def account():
+# Function linked to form to submit recipe
+@routes.route('/add_recipe', methods=['GET', 'POST'])
+def add_recipe():
     if request.method == 'POST':
         recipe_name = request.form.get('recipe-name')
         recipe_time = request.form.get('recipe-time')
@@ -34,4 +33,12 @@ def account():
             db.session.add(new_recipe)
             db.session.commit()
             flash('Recipe uploaded succesfully', category='success')
-    return render_template("account.html", user=current_user)
+    return render_template("recipes.html", user=current_user)
+
+
+@routes.route('recipes', methods=['GET', 'POST'])
+@login_required
+def recipe():
+    recipes = list(Recipes.query.order_by(Recipe.recipe_name).all())
+    print(recipes)
+    return render_template("recipes.html", recipes=recipes)
