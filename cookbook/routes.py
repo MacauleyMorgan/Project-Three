@@ -10,6 +10,22 @@ routes = Blueprint('routes', __name__)
 def home():
     return render_template("home.html")
 
+
+@routes.route('/edit_recipe/<int:recipe_id>', methods=['GET', 'POST'])
+@login_required
+def edit_recipe(recipe_id):
+    recipe = Recipes.query.get_or_404(recipe_id)
+    if request.method == 'POST':
+        recipe.name = request.form.get('recipe-name')
+        recipe.recipe_time = request.form.get('recipe-time')
+        recipe.recipe_image = request.form.get('recipe-image')
+        recipe.recipe_ingredients = request.form.get('recipe-ingredients')
+        recipe.recipe_steps = request.form.get('recipe-steps')
+        db.session.commit()
+        return redirect(url_for('routes.recipes'))
+    return render_template("edit_recipe.html", recipe=recipe)
+
+
 # Function linked to form to submit recipe
 @routes.route('/add_recipe', methods=['GET', 'POST'])
 @login_required
