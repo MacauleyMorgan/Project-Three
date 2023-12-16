@@ -23,7 +23,9 @@ In the email section of the page the user is presented with the current email ad
 The user is provided with an option to remove the account from the database after supplying the form with the email associated to their own account, the function queries the email provided with the current session user to prevent and foul play and only allow for the deletion of the logged in account.
 ## Recipes Page
 In the recipes page, the user is able to view all recipe submissions made by themselves with the option to update the recipes and also to delete them.
+
 Upon clicking the edit button, the user is directed to a prefilled form referencing all of the recipes current values, allowing the user to change whatever is neccessary and resubmit the form back to the database to be updated.
+
 To ensure no accidental deletions of the recipes, a modal has been implemented requiring the user to confirm the attempt before the recipe is removed from the database
 ## Admin Features
 ## Features left to implement
@@ -34,17 +36,25 @@ Sign In function
 Create recipe function
 ### Read
 Reads database to filter all recipes to home page
+
 Reads database to filter current user recipe to recipes page
+
 Reads database to filter first name to replace "Mac's Cookbook' in title
+
 Reads database to supply email in account page
+
 Verifies old email, password and current email before allowing changes on account page
 ### Update
-Update recipes
-Update email
-Update password
+User can update recipes that is associated with thier account
+
+The user can change email addresses for the account if neccessary in the database
+
+The user can update the account password via the account page
+
 ### Delete
-Delete recipe
-Delete account
+The user has the option to remove/delete recipes from their account and the database
+
+The user can delete the account from the website permanently
 
 # Wireframes
 ## Login
