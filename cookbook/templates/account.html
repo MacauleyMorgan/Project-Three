@@ -78,7 +78,7 @@ Welcome to your account {{current_user.first_name}}
     <li>
         <div class="collapsible-header"><i class="material-icons"></i>Delete Account</div>
         <div class="collapsible-body">
-            <form id="delete-account" class="col s12" method="POST">
+            <form action="{{url_for('routes.delete_user', current_user_id=current_user.id) }}" id="delete-account" class="col s12" method="POST">
                 <div class="row">
                     <div class="input-field col s6 offset-s3 center-align">
                         <input type="email" name="email" class="validate" required>
@@ -95,7 +95,7 @@ Welcome to your account {{current_user.first_name}}
                             <strong>Are you sure?</strong>
                         </div>
                         <div class="modal-footer">
-                            <a href="#!" class="modal-close waves-effect btn red darken-1">Confirm</a>
+                            <button type="submit" class="modal-close waves-effect btn red darken-1">Confirm</button>
                         </div>
                     </div>
             </form>

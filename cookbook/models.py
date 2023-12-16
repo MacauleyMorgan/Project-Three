@@ -14,7 +14,7 @@ class User(db.Model, UserMixin):
     # Admin will automatically be false unless specified by db manager
     is_admin = db.Column(db.Boolean, default=False, nullable=False)
     # Keeps track of user recipes
-    user_recipes = db.relationship('Recipes')
+    user_recipes = db.relationship('Recipes', backref="user", cascade="all, delete", lazy=True)
 
     def __repr__(self):
         # represents itself as a string

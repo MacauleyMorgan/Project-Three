@@ -13,6 +13,90 @@ def home():
     return render_template("home.html", recipes=recipes)
 
 
+# Function to load recipe page
+@routes.route('recipes', methods=['GET', 'POST'])
+@login_required
+def recipes():
+    recipes = list(Recipes.query.order_by(Recipes.user_id).all())
+    my_recipes = list()
+    for recipe in recipes:
+        if recipe.user_id == current_user.id:
+            my_recipes.append(recipe)
+        else:
+            pass
+    return render_template("recipes.html", recipes=my_recipes)
+
+
+# Loads account page
+@routes.route('account', methods=['GET', 'POST'])
+@login_required
+def account():
+    return render_template("account.html")
+
+
+# User CRUD functions
+# Change email
+@routes.route('email_change/<int:current_user_id>', methods=['GET', 'POST'])
+@login_required
+def email_change(current_user_id):
+    user = User.query.get_or_404(current_user_id)
+    if request.method == 'POST':
+        email = request.form.get('new-email')
+        user_already_exists = User.query.filter_by(email=email).first()
+        if user_already_exists:
+            flash('Sorry, email is already in use', category="error")
+            return redirect(url_for('routes.account'))
+        else:
+            user.email = email
+            db.session.commit()
+        return redirect(url_for('routes.account'))
+    return render_template("account.html", user=user)
+
+
+# Change password
+@routes.route('password_change/<int:current_user_id>', methods=['GET', 'POST'])
+@login_required
+def password_change(current_user_id):
+    if request.method == 'POST':
+        user = User.query.get_or_404(current_user_id)
+        old_password = request.form.get('old-password')
+        requested_password = request.form.get('new-password')
+        if check_password_hash(user.password, old_password):
+            if len(requested_password) > 3:
+                new_password = generate_password_hash(requested_password, method='sha256')
+                user.password = new_password
+                db.session.commit()
+                flash('Password successfully changed!', category='success')
+                return redirect(url_for('routes.account'))
+            else:
+                flash('Password must be greater than 3 characters', category='error')
+                return redirect(url_for('routes.account'))
+        else:
+            flash('Sorry, passwords do not match!', category='error')
+            return redirect(url_for('routes.account'))
+    return render_template("account.html", user=user)
+
+
+# Function to delete recipes
+@routes.route('delete_user/<int:current_user_id>', methods=['GET', 'POST'])
+def delete_user(current_user_id): 
+    user = User.query.get_or_404(current_user_id)
+    if request.method == 'POST':
+        # Checks email written into form to verify deletion
+        verify = request.form.get('email')
+        if user.email == verify:
+            db.session.delete(user)
+            db.session.commit()
+            flash('Your account has been deleted')
+            return redirect(url_for('auth.login'))
+        else:
+            flash('Sorry that did not work! Please try again')
+            return redirect(url_for('routes.account'))
+    return redirect(url_for('routes.account'))
+
+
+# Recipe CRUD functions
+# Edit Recipe
 @routes.route('/edit_recipe/<int:recipe_id>', methods=['GET', 'POST'])
 @login_required
 def edit_recipe(recipe_id):
@@ -55,68 +139,10 @@ def add_recipe():
     return render_template("add_recipe.html", user=current_user)
 
 
+# Function to delete recipes
 @routes.route('delete_recipe/<int:recipe_id>')
 def delete_recipe(recipe_id):
     recipe = Recipes.query.get_or_404(recipe_id)
     db.session.delete(recipe)
     db.session.commit()
     return redirect(url_for('routes.recipes'))
-
-
-@routes.route('recipes', methods=['GET', 'POST'])
-@login_required
-def recipes():
-    recipes = list(Recipes.query.order_by(Recipes.user_id).all())
-    my_recipes = list()
-    for recipe in recipes:
-        if recipe.user_id == current_user.id:
-            my_recipes.append(recipe)
-        else:
-            pass
-    return render_template("recipes.html", recipes=my_recipes)
-
-
-@routes.route('account', methods=['GET', 'POST'])
-@login_required
-def account():
-    return render_template("account.html")
-
-
-@routes.route('email_change/<int:current_user_id>', methods=['GET', 'POST'])
-@login_required
-def email_change(current_user_id):
-    user = User.query.get_or_404(current_user_id)
-    if request.method == 'POST':
-        email = request.form.get('new-email')
-        user_already_exists = User.query.filter_by(email=email).first()
-        if user_already_exists:
-            flash('Sorry, email is already in use', category="error")
-            return redirect(url_for('routes.account'))
-        else:
-            user.email = email
-            db.session.commit()
-        return redirect(url_for('routes.account'))
-    return render_template("account.html", user=user)
-
-
-@routes.route('password_change/<int:current_user_id>', methods=['GET', 'POST'])
-@login_required
-def password_change(current_user_id):
-    if request.method == 'POST':
-        user = User.query.get_or_404(current_user_id)
-        old_password = request.form.get('old-password')
-        requested_password = request.form.get('new-password')
-        if check_password_hash(user.password, old_password):
-            if len(requested_password) > 3:
-                new_password = generate_password_hash(requested_password, method='sha256')
-                user.password = new_password
-                db.session.commit()
-                flash('Password successfully changed!', category='success')
-                return redirect(url_for('routes.account'))
-            else:
-                flash('Password must be greater than 3 characters', category='error')
-                return redirect(url_for('routes.account'))
-        else:
-            flash('Sorry, passwords do not match!', category='error')
-            return redirect(url_for('routes.account'))
-    return render_template("account.html", user=user)
