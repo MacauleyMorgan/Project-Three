@@ -1,5 +1,5 @@
 from cookbook import app, db
-from cookbook.models import User, Recipes
+from .models import User, Recipes
 from flask import render_template, Blueprint, request, flash
 from flask_login import login_required, current_user
 
@@ -12,6 +12,7 @@ def home():
 
 # Function linked to form to submit recipe
 @routes.route('/add_recipe', methods=['GET', 'POST'])
+@login_required
 def add_recipe():
     if request.method == 'POST':
         recipe_name = request.form.get('recipe-name')
@@ -39,8 +40,7 @@ def add_recipe():
 @routes.route('recipes', methods=['GET', 'POST'])
 @login_required
 def recipes():
-    recipes = list(Recipes.query.order_by(Recipe.recipe_name).all())
-    print(recipes)
+    recipes = list(Recipes.query.order_by(Recipes.recipe_name).all())
     return render_template("recipes.html", recipes=recipes)
 
 
