@@ -25,8 +25,8 @@ Your Recipes
             <p>{{recipe.recipe_ingredients}}</p>
         </div>
         <div class="card-action">
-          <a href="{{ url_for('routes.edit_recipe', recipe_id=recipe.id) }}" class="btn">Edit</a>
-          <a href="#" class="btn">Delete</a>
+          <a href="{{ url_for('routes.edit_recipe', recipe_id=recipe.id) }}" class="btn green darken-1">Edit</a>
+          <a href="#" class="btn red darken-1">Delete</a>
         </div>
       </div>
     </div>
