@@ -48,15 +48,15 @@ Welcome to your account {{current_user.first_name}}
     <li>
         <div class="collapsible-header"><i class="material-icons"></i>Password</div>
         <div class="collapsible-body">
-            <form id="password-change" class="col s12" method="POST">
+            <form action="{{url_for('routes.password_change', current_user_id=current_user.id) }}" id="password-change" class="col s12" method="POST">
                 <div class="row">
                     <div class="input-field col s6 offset-s3 center-align">
                         <input type="password" name="old-password" class="validate" required>
-                        <label class="active" for="email">Old password</label>
+                        <label class="active" for="old-password">Old password</label>
                     </div>
                     <div class="input-field col s6 offset-s3 center-align">
                         <input type="password" name="new-password" class="validate" required>
-                        <label class="active" for="email">New password</label>
+                        <label class="active" for="new-password">New password</label>
                         <!-- Modal Trigger -->
                         <a class="waves-effect waves-light btn modal-trigger" href="#modal2">Change Password</a>
 
@@ -68,7 +68,7 @@ Welcome to your account {{current_user.first_name}}
                             <strong>Are you sure?</strong>
                         </div>
                         <div class="modal-footer">
-                            <a href="#!" class="modal-close waves-effect btn red darken-1">Confirm</a>
+                            <button type="submit" class="modal-close waves-effect btn red darken-1">Confirm</button>
                         </div>
                     </div>
             </form>

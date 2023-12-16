@@ -2,6 +2,7 @@ from cookbook import app, db
 from .models import User, Recipes
 from flask import render_template, Blueprint, request, flash, redirect, url_for
 from flask_login import login_required, current_user
+from werkzeug.security import generate_password_hash, check_password_hash
 
 routes = Blueprint('routes', __name__)
 
@@ -95,4 +96,23 @@ def email_change(current_user_id):
             user.email = email
             db.session.commit()
         return redirect(url_for('routes.account'))
+    return render_template("account.html", user=user)
+
+
+@routes.route('password_change/<int:current_user_id>', methods=['GET', 'POST'])
+@login_required
+def password_change(current_user_id):
+    user = User.query.get_or_404(current_user_id)
+    if request.method == 'POST':
+        old_password = request.form.get('old-password')
+        requested_password = request.form.get('new-password')
+        if check_password_hash(user.password, old_password):
+            new_password = generate_password_hash(requested_password, method='sha256')
+            user.password = new_password
+            db.session.commit()
+            flash('Password successfully changed!', category='success')
+            return redirect(url_for('routes.account'))
+        else:
+            flash('Sorry, passwords do not match!', category='error')
+            return redirect(url_for('routes.account'))
     return render_template("account.html", user=user)
