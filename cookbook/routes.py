@@ -8,7 +8,8 @@ routes = Blueprint('routes', __name__)
 @routes.route('/')
 @login_required
 def home():
-    return render_template("home.html")
+    recipes = list(Recipes.query.order_by(Recipes.name).all())
+    return render_template("home.html", recipes=recipes)
 
 
 @routes.route('/edit_recipe/<int:recipe_id>', methods=['GET', 'POST'])
@@ -65,8 +66,14 @@ def delete_recipe(recipe_id):
 @routes.route('recipes', methods=['GET', 'POST'])
 @login_required
 def recipes():
-    recipes = list(Recipes.query.order_by(Recipes.name).all())
-    return render_template("recipes.html", recipes=recipes)
+    recipes = list(Recipes.query.order_by(Recipes.user_id).all())
+    my_recipes = list()
+    for recipe in recipes:
+        if recipe.user_id == current_user.id:
+            my_recipes.append(recipe)
+        else:
+            pass
+    return render_template("recipes.html", recipes=my_recipes)
 
 
 @routes.route('account')
