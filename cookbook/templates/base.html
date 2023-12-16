@@ -82,16 +82,7 @@
     <!-- Modal trigger -->
     {% for category, message in messages %}
     {% if category == 'error' %}
-    <a class="waves-effect waves-light btn modal-trigger red darken-1" href="#modal1">Error, click here to view</a>
-    <!-- Modal Structure -->
-    <div id="modal1" class="modal">
-        <div class="modal-content">
-            {{ message }}
-        </div>
-        <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
-        </div>
-    </div>
+    <a class="waves-effect waves-light btn modal-trigger red darken-2 white-text" href="#modal1">{{message}}!</a>
     {% else %}
     <a class="waves-effect waves-light btn modal-trigger teal lighten-4 black-text" href="#modal1">{{message}}!</a>
     {% endif %}

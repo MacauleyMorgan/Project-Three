@@ -76,7 +76,23 @@ def recipes():
     return render_template("recipes.html", recipes=my_recipes)
 
 
-@routes.route('account')
+@routes.route('account', methods=['GET', 'POST'])
 @login_required
 def account():
-    return render_template("account.html", recipes=recipes)
+    return render_template("account.html")
+
+
+@routes.route('email_change/<int:current_user_id>', methods=['GET', 'POST'])
+def email_change(current_user_id):
+    user = User.query.get_or_404(current_user_id)
+    if request.method == 'POST':
+        email = request.form.get('new-email')
+        user_already_exists = User.query.filter_by(email=email).first()
+        if user_already_exists:
+            flash('Sorry, email is already in use', category="error")
+            return redirect(url_for('routes.account'))
+        else:
+            user.email = email
+            db.session.commit()
+        return redirect(url_for('routes.account'))
+    return render_template("account.html", user=user)

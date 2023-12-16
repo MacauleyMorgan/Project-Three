@@ -18,7 +18,7 @@ class User(db.Model, UserMixin):
 
     def __repr__(self):
         # represents itself as a string
-        return f"ID: {self.id} Name:{self.first_name} {self.last_name}"
+        return f"ID: {self.id} Name:{self.first_name} {self.last_name} Email:{self.email}"
 
 
 class Recipes(db.Model):

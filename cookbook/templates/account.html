@@ -18,7 +18,7 @@ Welcome to your account {{current_user.first_name}}
         <div class="collapsible-header"><i class="material-icons"></i>Account Email</div>
         <div class="collapsible-body">
             <!-- Current Email -->
-            <form id="email-change" class="col s12" method="POST">
+            <form action="{{url_for('routes.email_change', current_user_id=current_user.id) }}" id="email-change" class="col s12" method="POST">
                 <div class="row">
                     <div class="input-field col s6 offset-s3 center-align">
                         <strong>Current email: {{current_user.email}}</strong>
@@ -29,7 +29,6 @@ Welcome to your account {{current_user.first_name}}
                         <label class="active" for="email">New email</label>
                         <!-- Modal Trigger -->
                         <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Change Email</a>
-
                     </div>
 
                     <!-- Modal Structure -->
@@ -38,7 +37,7 @@ Welcome to your account {{current_user.first_name}}
                             <strong>Are you sure?</strong>
                         </div>
                         <div class="modal-footer">
-                            <a href="#!" class="modal-close waves-effect btn red darken-1">Confirm</a>
+                            <button type="submit" class="btn red darken-2">Submit</button>
                         </div>
                     </div>
                 </div>
