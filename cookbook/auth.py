@@ -64,7 +64,6 @@ def signup():
             new_user = User(first_name=first_name, last_name=last_name, mobile=mobile, email=email, password=generate_password_hash(password1, method='sha256'))
             db.session.add(new_user)
             db.session.commit()
-            login_user(user, remember=True)
             return redirect(url_for('routes.home'))
             flash('Welcome aboard!', category='success')
     return render_template("signup.html")
