@@ -13,7 +13,8 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String, nullable=False)
     # Admin will automatically be false unless specified by db manager
     is_admin = db.Column(db.Boolean, default=False, nullable=False)
-    user_recipes = db.relationship("Recipes", backref="user", cascade="all, delete", lazy=True)
+    # Keeps track of user recipes
+    user_recipes = db.relationship('Recipes')
 
     def __repr__(self):
         # represents itself as a string
@@ -21,16 +22,22 @@ class User(db.Model, UserMixin):
 
 
 class Recipes(db.Model):
-    # Schema for recipes of each user
-    id = db.Column(db.Integer, primary_key=True)
-    # Recipe name is not unique due to plan to add Account name on end of entry on the front end
-    recipe_name = db.Column(db.String, db.ForeignKey('user.email', ondelete='CASCADE'), nullable=False)
+    # Recipe name
+    id = db.Column(db.String, nullable=False, primary_key=True)
+    # Recipe time, will specify intention to record time in minutes
+    name = db.Column(db.String, nullable=False)
     # Recipe time, will specify intention to record time in minutes
     recipe_time = db.Column(db.Integer, nullable=False)
+    # Recipe ingredients
     recipe_ingredients = db.Column(db.String, nullable=False)
+    # Recipe steps
     recipe_steps = db.Column(db.String, nullable=False)
+    # Image link to external source as a string
     recipe_image = db.Column(db.String, nullable=False)
+    # Foreign key to link user
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id', ondelete='CASCADE'), nullable=False)
+
 
     def __repr__(self):
         # represents itself as a string
-        return f"ID:{self.id} Recipe:{self.recipe_name} Time:{self.recipe_time} Ingredients:{self.recipe_ingredients} Steps:{self.recipe_steps}"
+        return f"Name:{self.recipe_name} Time:{self.recipe_time} Ingredients:{self.recipe_ingredients} Steps:{self.recipe_steps} Owner: {self.user_id}"
