@@ -34,4 +34,4 @@ def account():
             db.session.add(new_recipe)
             db.session.commit()
             flash('Recipe uploaded succesfully', category='success')
-    return render_template("account.html")
+    return render_template("account.html", user=current_user)
