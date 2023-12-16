@@ -1,6 +1,6 @@
 from cookbook import app, db
 from cookbook.models import User, Recipes
-from flask import render_template, Blueprint, request
+from flask import render_template, Blueprint, request, flash
 from flask_login import login_required, current_user
 
 routes = Blueprint('routes', __name__)
