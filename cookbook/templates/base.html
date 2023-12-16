@@ -14,6 +14,42 @@
 
 <body>
     <!-- Navbar -->
+    <!-- If User is logged in -->
+    {% if current_user %}
+    <nav>
+        <div class="nav-wrapper teal darken-2">
+            <a href="#" class="brand-logo">{{current_user.first_name}} Cookbook</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons"><i
+                        class="fa fa-bars" aria-hidden="true"></i></i>X</a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="{{ url_for('auth.signup' )}}">Home <i class="fa fa-home" aria-hidden="true"></i>
+                    </a></li>
+                <li><a href="{{ url_for('routes.add_recipe' )}}">Add Recipe <i class="fa fa-plus" aria-hidden="true"></i>
+                    </a></li>
+                <li><a href="{{ url_for('routes.recipes' )}}">Your Recipes <i class="fa fa-book" aria-hidden="true"></i>
+                    </a></li>
+                <li><a href="{{ url_for('routes.account' )}}">Account <i class="fa fa-user" aria-hidden="true"></i>
+                    </a></li>
+                <li><a href="{{ url_for('auth.logout' )}}">Logout <i class="fa fa-sign-out" aria-hidden="true"></i>
+                    </a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Hamburger Menu on mobile devices -->
+    <ul class="sidenav" id="mobile-demo">
+        <li><a href="{{ url_for('auth.signup' )}}">Home <i class="fa fa-home" aria-hidden="true"></i>
+        </a></li>
+    <li><a href="{{ url_for('routes.add_recipe' )}}">Add Recipe <i class="fa fa-plus" aria-hidden="true"></i>
+        </a></li>
+    <li><a href="{{ url_for('routes.recipes' )}}">Your Recipes <i class="fa fa-book" aria-hidden="true"></i>
+        </a></li>
+    <li><a href="{{ url_for('routes.account' )}}">Account <i class="fa fa-user" aria-hidden="true"></i>
+        </a></li>
+    <li><a href="{{ url_for('auth.logout' )}}">Logout <i class="fa fa-sign-out" aria-hidden="true"></i>
+        </a></li>
+    </ul>
+    {% else %}
+    <!-- User has not logged in -->
     <nav>
         <div class="nav-wrapper teal darken-2">
             <a href="#" class="brand-logo">Mac's Cookbook</a>
@@ -23,8 +59,6 @@
                 <li><a href="{{ url_for('auth.login' )}}">Login <i class="fa fa-lock" aria-hidden="true"></i>
                     </a></li>
                 <li><a href="{{ url_for('auth.signup' )}}">Sign Up <i class="fa fa-plus" aria-hidden="true"></i>
-                    </a></li>
-                <li><a href="{{ url_for('auth.signup' )}}">Logout <i class="fa fa-sign-out" aria-hidden="true"></i>
                     </a></li>
             </ul>
         </div>
@@ -36,9 +70,9 @@
             </a></li>
         <li><a href="{{ url_for('auth.signup' )}}">Sign Up <i class="fa fa-plus black-text" aria-hidden="true"></i>
             </a></li>
-        <li><a href="{{ url_for('auth.signup' )}}">Logout <i class="fa fa-sign-out black-text" aria-hidden="true"></i>
-            </a></li>
     </ul>
+    {% endif %}
+
 
     <!-- Area for flashed messages -->
     {% with messages = get_flashed_messages(with_categories=true) %}
@@ -93,13 +127,13 @@
         $(document).ready(function () {
             $('.modal').modal();
         });
-        $(document).ready(function(){
-        $('.collapsible').collapsible();
+        $(document).ready(function () {
+            $('.collapsible').collapsible();
         });
         $('.carousel.carousel-slider').carousel({
-        fullWidth: true,
-        indicators: true
-  });
+            fullWidth: true,
+            indicators: true
+        });
     </script>
 </body>
 

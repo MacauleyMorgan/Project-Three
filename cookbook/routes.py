@@ -38,7 +38,13 @@ def add_recipe():
 
 @routes.route('recipes', methods=['GET', 'POST'])
 @login_required
-def recipe():
+def recipes():
     recipes = list(Recipes.query.order_by(Recipe.recipe_name).all())
     print(recipes)
     return render_template("recipes.html", recipes=recipes)
+
+
+@routes.route('account', methods=['GET', 'POST'])
+@login_required
+def account():
+    return render_template("account.html", recipes=recipes)
