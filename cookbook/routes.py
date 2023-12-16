@@ -34,7 +34,7 @@ def add_recipe():
             db.session.add(new_recipe)
             db.session.commit()
             flash('Recipe uploaded succesfully', category='success')
-    return render_template("recipes.html", user=current_user)
+    return render_template("add_recipe.html", user=current_user)
 
 
 @routes.route('recipes', methods=['GET', 'POST'])
