@@ -62,7 +62,6 @@ def delete_recipe(recipe_id):
     return redirect(url_for('routes.recipes'))
 
 
-
 @routes.route('recipes', methods=['GET', 'POST'])
 @login_required
 def recipes():
@@ -83,6 +82,7 @@ def account():
 
 
 @routes.route('email_change/<int:current_user_id>', methods=['GET', 'POST'])
+@login_required
 def email_change(current_user_id):
     user = User.query.get_or_404(current_user_id)
     if request.method == 'POST':
