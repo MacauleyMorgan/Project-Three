@@ -102,16 +102,20 @@ def email_change(current_user_id):
 @routes.route('password_change/<int:current_user_id>', methods=['GET', 'POST'])
 @login_required
 def password_change(current_user_id):
-    user = User.query.get_or_404(current_user_id)
     if request.method == 'POST':
+        user = User.query.get_or_404(current_user_id)
         old_password = request.form.get('old-password')
         requested_password = request.form.get('new-password')
         if check_password_hash(user.password, old_password):
-            new_password = generate_password_hash(requested_password, method='sha256')
-            user.password = new_password
-            db.session.commit()
-            flash('Password successfully changed!', category='success')
-            return redirect(url_for('routes.account'))
+            if len(requested_password) > 3:
+                new_password = generate_password_hash(requested_password, method='sha256')
+                user.password = new_password
+                db.session.commit()
+                flash('Password successfully changed!', category='success')
+                return redirect(url_for('routes.account'))
+            else:
+                flash('Password must be greater than 3 characters', category='error')
+                return redirect(url_for('routes.account'))
         else:
             flash('Sorry, passwords do not match!', category='error')
             return redirect(url_for('routes.account'))
