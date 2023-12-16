@@ -62,7 +62,6 @@ def signup():
             flash('Your password should be longer than 3 characters!')
         else:
             new_user = User(first_name=first_name, last_name=last_name, mobile=mobile, email=email, password=generate_password_hash(password1, method='sha256'))
-            print(new_user)
             db.session.add(new_user)
             db.session.commit()
             login_user(user, remember=True)

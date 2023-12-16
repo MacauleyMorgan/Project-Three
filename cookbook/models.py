@@ -29,6 +29,7 @@ class Recipes(db.Model):
     recipe_time = db.Column(db.Integer, nullable=False)
     recipe_ingredients = db.Column(db.String, nullable=False)
     recipe_steps = db.Column(db.String, nullable=False)
+    recipe_image = db.Column(db.String, nullable=False)
 
     def __repr__(self):
         # represents itself as a string

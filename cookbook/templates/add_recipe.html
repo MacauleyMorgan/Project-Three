@@ -18,7 +18,7 @@ Recipes
         <div class="collapsible-header"><i class="material-icons"></i>New Recipe</div>
         <div class="collapsible-body">
             <div class="row">
-                <form class="col s12">
+                <form class="col s12" method="POST">
                     <!-- Row to get name and time -->
                     <div class="row">
                         <div class="input-field col s8">
@@ -26,8 +26,8 @@ Recipes
                             <label for="recipe-name">Recipe Name</label>
                         </div>
                         <div class="input-field col s3 offset-s1">
-                            <input id="recipe_time" type="number" class="validate">
-                            <label for="recipe_time">Time (Minutes)</label>
+                            <input name="recipe-time" type="number" class="validate">
+                            <label for="recipe-time">Time (Minutes)</label>
                         </div>
                     </div>
                     <!-- Row to get ingredients and steps -->
@@ -37,8 +37,8 @@ Recipes
                             <label for="recipe-ingredients">Recipe Ingredients</label>
                         </div>
                         <div class="input-field col s6">
-                            <input id="recipe_steps" type="text" class="validate">
-                            <label for="recipe_steps">Recipe Steps</label>
+                            <input name="recipe-steps" type="text" class="validate">
+                            <label for="recipe-steps">Recipe Steps</label>
                         </div>
                     </div>
                     <!-- Image upload and submit button -->
@@ -48,7 +48,7 @@ Recipes
                             <label for="recipe-image">Image link (Please use tinypic to generate link)</label>
                         </div>
                         <div class="input-field col s2 offset-s1">
-                            <a href="{{ url_for('routes.add_recipe') }}" class="btn" type="submit">Submit Recipe</a>
+                            <button type="submit" class="btn">Submit Recipe</button>
                         </div>
                     </div>
                 </form>
