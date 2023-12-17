@@ -76,18 +76,38 @@ The user can delete the account from the website permanently
 # Wireframes
 ## Login
 Wire frames of the login page were created to provide a positive user experience, offering clear contrasts and large font sizes with minimal clutter
+
+![Login Desktop Wireframe](/cookbook/docs/Wireframes/Desktop/signin-desktop.png "Login Desktop Wireframe")
+
 ## Sign Up
 The sign up page wireframe was created with the idea of keeping the screen clutter free and easy to read.
+
+![Register Desktop Wireframe](/cookbook/docs/Wireframes/Desktop/signup-desktop.png "Register Desktop Wireframe")
+
 ## Home
 The home wireframe was designed to allow for a display of community recipes and allow the user to browse freely for inspiration
+
+![Home Desktop Wireframe](/cookbook/docs/Wireframes/Desktop/home-desktop.png "Home Desktop Wireframe")
+
 ## Recipes
 The recipes page wireframe was designed to show the users recipes in a clear and uncluttered manner offering good contrast ratios and easy to read buttons
+
+![Recipes Desktop Wireframe](/cookbook/docs/Wireframes/Desktop/recipes-desktop.png "Recipes Desktop Wireframe")
+
 ## Add a recipe
 The add a recipe form was created with the intention of allowing the user to upload recipes in a simple manner providing the necessary information alongside verification of the submission
+
+![Add recipes Desktop Wireframe](/cookbook/docs/Wireframes/Desktop/add-recipe-desktop.png "Add recipes Desktop Wireframe")
+
 ## Edit a recipe
 The edit page was designed to be clear and concise with one form only. allowing the user to focus on the editing with minimal distractions
+
+![Edit recipes Desktop Wireframe](/cookbook/docs/Wireframes/Desktop/edit-recipe-desktop.png "Edit recipes Desktop Wireframe")
+
 ## Account
 The account page was designed to be collapsible to allow for minimal screen clutter when filling out forms in the page
+
+![Account Desktop Wireframe](/cookbook/docs/Wireframes/Desktop/account-desktop.png "Account Desktop Wireframe")
 
 # Entity Relationship Diagram & Flow Chart
 # Testing
