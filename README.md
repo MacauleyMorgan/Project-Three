@@ -116,6 +116,45 @@ The account page was designed to be collapsible to allow for minimal screen clut
 ![Account Desktop Wireframe](/cookbook/docs/Wireframes/Desktop/account-desktop.png "Account Desktop Wireframe")
 
 # Entity Relationship Diagram & Flow Chart
+## ERD Diagram
+![ERD Diagram](/cookbook/docs/Diagrams/erd-diagram.png/ "ERD Diagram")
+
+## Flow charts
+### Login/Register
+![Login flow chart](/cookbook/docs/Diagrams/login-chart.png "Login flow chart")
+
+The login functionality of the site is presented to the user on page load alongside the sign up page in the navigation. The user is restricted to these pages until they are authenticated. If a user signs up to the site they are redirected on successful registration to the login page to continue the use of the site. 
+
+### Delete Account
+![Delete account flow chart](/cookbook/docs/Diagrams/delete-account-chart.png "Delete account flow chart")
+
+The functionality regarding deleting an account begins at the account page once the user has logged in, the user must click the collapsible to show the delete account portion of the page and also confirm their intentions to delete by entering the email associated with that account. On form submission the backend queries the database using the current user ID and if the email written in the input field matched the current user email, the account is deleted.
+
+### Email Changed
+![Email changed flow chart](/cookbook/docs/Diagrams/email-changed-chart.png "Email changed flow chart")
+
+The email change section of the site starts with displaying the users currently associated email with the site account, it then offers an input field for the user to submit a new email validated by the HTML before offering a modal to confirm the user choice. If the user clicks the modal the database will be queried and if no account is linked with the new email already, it will be assigned to the account. Otherwise feedback will be given to the user regarding the email being used.
+
+### Password Change
+![Password change flow chart](/cookbook/docs/Diagrams/password-change-chart.png "Password change flow chart")
+
+The account page offers functionality for a password change to the user, the form required the user to confirm the current account password as verification of the intention to change the account, and also a new password to replace it. The database is then queried and if the current password matches the one in the database storage, it will be replaced by the new password.
+
+### Add Recipe
+![Add recipe flow chart](/cookbook/docs/Diagrams/add-recipe-chart.png "Add recipe flow chart")
+
+The add recipe function is a simple form validated by HTML for the user to fill out. On submission of the form the database will commit the recipe to storage and reload the recipes page to show the new recipe as a card with the option to edit and delete.
+
+### Edit Recipe
+![Edit recipe flow chart](/cookbook/docs/Diagrams/edit-recipe-chart.png "Edit recipe flow chart")
+
+Similar to the add recipe function the edit recipe uses the same form however targets the recipe ID passed to the function when clicking edit on a recipe card that the user owns. Users can only edit their own recipes.
+
+### Delete Recipe
+![Delete recipe flow chart](/cookbook/docs/Diagrams/delete-recipe-chart.png "Delete recipe flow chart")
+
+The delete recipe function, much like the edit recipe is only available via the your recipes page and can only be used on a recipe that is owned by the current user, the function also has a modal to confirm deletion to prevent accidental deletes.
+
 # Testing
 ## Wave testing
 ## Lighthouse Testing
