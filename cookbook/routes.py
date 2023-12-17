@@ -129,12 +129,17 @@ def add_recipe():
         elif len(recipe_ingredients) < 1:
             flash('Recipe ingredients not provided', category='error')
         else: 
-            recipe = Recipes(name=recipe_name, recipe_time=recipe_time, recipe_ingredients=recipe_ingredients, recipe_image=recipe_image, recipe_steps=recipe_steps, user_id=current_user.id)
-            print(recipe)
+            recipe = Recipes(
+                name=recipe_name, 
+                recipe_time=recipe_time, 
+                recipe_ingredients=recipe_ingredients, 
+                recipe_image=recipe_image, 
+                recipe_steps=recipe_steps, 
+                user_id=current_user.id)
             db.session.add(recipe)
             db.session.commit()
+            flash('Recipe uploaded successfully', category='success')
             return redirect(url_for('routes.recipes'))
-            flash('Recipe uploaded succesfully', category='success')
 
     return render_template("add_recipe.html", user=current_user)
 

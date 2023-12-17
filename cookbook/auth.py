@@ -61,9 +61,14 @@ def signup():
         elif len(password1) < 3:
             flash('Your password should be longer than 3 characters!')
         else:
-            new_user = User(first_name=first_name, last_name=last_name, mobile=mobile, email=email, password=generate_password_hash(password1, method='sha256'))
+            new_user = User(
+                first_name=first_name, 
+                last_name=last_name, 
+                mobile=mobile, 
+                email=email, 
+                password=generate_password_hash(password1, method='sha256'))
             db.session.add(new_user)
             db.session.commit()
-            return redirect(url_for('routes.home'))
             flash('Welcome aboard!', category='success')
+            return redirect(url_for('routes.home'))
     return render_template("signup.html")
