@@ -25,6 +25,7 @@ As a logged out user, I would like to be able to sign in and access the site
 # Features
 ## Site wide
 The implementation of a global navbar and footer to make a uniform user experience has been completed site wide
+- As a logged in user I would like to be able to navigate around the site structure easily and understand the layout of the site instinctively
 ## Pre Login
 The user experience is limited to only 2 pages before logging in, from here they can navigate to the login page or sign up page
 ## Home Page
@@ -55,8 +56,12 @@ A feature that can be implemented in the future would be the forgot password for
 ## CRUD Functions
 ### Create
 Sign In function
+- As a logged out user, I would like to be able to sign in and access the site
+- As a logged out user, I would like to be able to access the register page to create an account and get feedback based on a successful registration
 
 Create recipe function
+- As a logged in user, I would like to be able to contribute my own recipes to the site
+
 ### Read
 Reads database to filter all recipes to home page
 
@@ -68,16 +73,20 @@ Reads database to supply email in account page
 
 Verifies old email, password and current email before allowing changes on account page
 ### Update
-User can update recipes that is associated with thier account
+User can update recipes that is associated with their account
+- As a logged in user, I would like to be able to adjust and delete the recipes I have submitted on the website at my own leisure
 
 The user can change email addresses for the account if neccessary in the database
+- As a logged in user, I would like the flexibility to change my email and password when I need t
 
 The user can update the account password via the account page
+- As a logged in user, I would like the flexibility to change my email and password when I need to
 
 ### Delete
 The user has the option to remove/delete recipes from their account and the database
 
 The user can delete the account from the website permanently
+- As a logged user, I would like to be able to delete my account if I decide to leave the site at a later date
 
 # Wireframes
 ## Login
