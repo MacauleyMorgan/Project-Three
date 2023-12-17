@@ -45,6 +45,12 @@ Upon clicking the edit button, the user is directed to a prefilled form referenc
 To ensure no accidental deletions of the recipes, a modal has been implemented requiring the user to confirm the attempt before the recipe is removed from the database
 ## Admin Features
 ## Features left to implement
+### Forgot Password Form
+A feature that can be implemented in the future would be the forgot password form, I would place this at the bottom of the login page and use the following steps to implement the feature.
+
+- Fill email form
+- Query database for email
+- If it exists, connect to an API to send email and allow the user to change password using the change password function.
 ## Error Pages
 ## CRUD Functions
 ### Create
