@@ -184,6 +184,26 @@ A Favicon was generated to display a recognisable icon in the browser tab in ord
 
 # Deployment
 ## GitHub version control
+
+The site was created using the template provided by code institute regarding milestone project 3. The code was written in gitpod and pushed using the gitpod source control option on the side bar of the application.
+
+### Github Pages
+- Adding it to Github Pages
+- To create the live link for the site, github pages was used in the following way.
+- Navigate to settings
+- Click on the Pages tab
+- Select the branch "main"
+- This will generate the link to the live site when created.
+- Click Save
+
+### Cloning
+- Select the github repository to clone.
+- Click on the code button to access the dropdown menu.
+- Download the file then open with IDE or copy Git URL from the HTTPS dialogue box.
+- Open the console window in the IDE of your choice.
+- Use the 'git clone' command inside the terminal and follow the command with the url you wish to clone.
+- A clone of the project will be created locally on your machine.
+
 ## Deployment to Heroku
 
 # Credits / Acknowledgements
