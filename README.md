@@ -22,6 +22,11 @@ As a logged out user, I would like to be able to access the register page to cre
 As a logged out user, I would like to be able to sign in and access the site
 
 ### Logged in admin goals
+
+As an admin, I would like to be able to grant/remove admin access to trusted users on the site
+
+As an admin, I would like to see which users currently have admin privileges on the site for a clear picture of who has access
+
 # Features
 ## Site wide
 The implementation of a global navbar and footer to make a uniform user experience has been completed site wide
@@ -45,6 +50,10 @@ Upon clicking the edit button, the user is directed to a prefilled form referenc
 
 To ensure no accidental deletions of the recipes, a modal has been implemented requiring the user to confirm the attempt before the recipe is removed from the database
 ## Admin Features
+On the admin page, an admin can add or remove access to admin features using the user email of the account needing the access using a simple form with a checkbox to add/remove privilege
+
+The admin page also allows admins to view other admins on the site for clarity to protect against unwanted or unneccesary access of the privileges.
+
 ## Features left to implement
 ### Forgot Password Form
 A feature that can be implemented in the future would be the forgot password form, I would place this at the bottom of the login page and use the following steps to implement the feature.
@@ -72,6 +81,8 @@ Reads database to filter first name to replace "Mac's Cookbook' in title
 Reads database to supply email in account page
 
 Verifies old email, password and current email before allowing changes on account page
+
+Admins can view other admin users via the admin page
 ### Update
 User can update recipes that is associated with their account
 - As a logged in user, I would like to be able to adjust and delete the recipes I have submitted on the website at my own leisure
@@ -81,6 +92,9 @@ The user can change email addresses for the account if neccessary in the databas
 
 The user can update the account password via the account page
 - As a logged in user, I would like the flexibility to change my email and password when I need to
+
+Toggle admin function
+- As an admin, I would like to be able to grant/remove admin access to trusted users on the site
 
 ### Delete
 The user has the option to remove/delete recipes from their account and the database
