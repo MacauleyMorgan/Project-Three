@@ -7,30 +7,33 @@ Admin
 
 <!-- Injects h2 title into the page -->
 {% block pageheader %}
-Admin
+Grant/Remove Admin Privileges
 {% endblock %}
 
 <!-- Injects content into the page -->
 {% block content %}
 
 <form method='POST' action="{{url_for('routes.toggle_admin') }}" class="center-align">
-    <h2>Current Users</h2>
     <div class="row">
         <!-- Enter user email -->
-        <div class="input-field col s8">
+        <div class="input-field col s12 m12 l8">
             <input name="user-email" type="email" class="validate">
             <label for="user-email">User Email</label>
         </div>
         <!-- Provides tickbox, tick for priveledges, untick to remove -->
-        <div class="input-field col s3 offset-s1">
+        <div class="input-field col s12 m12 l3 offset-s1">
             <label>
                 <input name="checkbox" type="checkbox" class="filled-in" checked="checked" />
-                <span>Tick/Untick priveledges</span>
+                <span>Tick/Untick priveleges</span>
             </label>
         </div>
     </div>
     <!-- Submit to database -->
-    <button type="submit" class="btn">Submit</button> 
-  </form>
+    <div class="row">
+        <div class="input-field col s12"></div>
+        <button type="submit" class="btn">Submit</button>
+    </div>
+    </div>
+</form>
 
 {% endblock %}
