@@ -16,8 +16,10 @@ def admin():
         current_admins = list(User.query.order_by(User.is_admin == True).all())
         current_admin_names = []
         for admin in current_admins:
-            name = f"{admin.first_name} {admin.last_name}"
-            current_admin_names.append(name)
+            if admin.is_admin:
+                name = f"{admin.first_name} {admin.last_name}"
+                current_admin_names.append(name)
+                current_admin_names.sort()
         return render_template("admin.html", current_admin_names=current_admin_names)
     else:
         flash('You are not an admin', category = 'error')
@@ -41,6 +43,7 @@ def toggle_admin():
                 print(user_exists.first_name, user_exists.is_admin)
                 db.session.commit()
                 flash('User is now an admin', category="success")
+                return redirect(url_for('routes.admin'))
             elif checkbox == None:
                 # User exists in database and access is removed
                 print('User exists and would remove access')
