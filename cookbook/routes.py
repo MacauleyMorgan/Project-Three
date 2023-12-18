@@ -197,8 +197,15 @@ def add_recipe():
 
 # Function to delete recipes
 @routes.route('delete_recipe/<int:recipe_id>')
+@login_required
 def delete_recipe(recipe_id):
     recipe = Recipes.query.get_or_404(recipe_id)
     db.session.delete(recipe)
     db.session.commit()
     return redirect(url_for('routes.recipes'))
+
+
+@routes.route('expand_recipe')
+@login_required
+def expand_recipe():
+    return render_template('expand_recipe.html')

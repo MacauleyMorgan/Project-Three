@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+<!-- Injects window title into the page -->
+{% block title %}
+View Recipe
+{% endblock %}
+
+<!-- Injects h2 title into the page -->
+{% block pageheader %}
+Recipe Title
+{% endblock %}
+
+<!-- Injects content into the page -->
+{% block content %}
+<div class="container">
+    <div class="row center-align">
+        <div class="col s12 l12">
+            <span>
+                <div class="card blue-grey darken-1">
+                    <!-- Loads tinypic image into card alongside author name -->
+                    <div class="card-content white-text">
+                        Created by: 
+                    </div>
+                </div>
+            </span>
+            <div class="row">
+                <!-- Recipe Name -->
+                <span class="col s6 m8 l6">Tomatoes</span>
+                <!-- Recipe Time -->
+                <span class="col s4 m2 l4 offset-m2-l2">Time</span>
+            </div>
+            <div class="row">
+                <!-- Ingredients -->
+                <span class="col s12 m6 offset-m3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim aperiam,
+                    ratione quis, exercitationem tempore ut unde natus quisquam voluptate eveniet maiores nesciunt?
+                    Excepturi eaque ea molestias at provident ut ad?</span>
+            </div>
+            <div class="row">
+                <!-- Steps -->
+                <span class="col s12 m6 offset-m3">Steps</span>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
