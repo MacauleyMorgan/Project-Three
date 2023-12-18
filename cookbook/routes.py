@@ -6,6 +6,21 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 routes = Blueprint('routes', __name__)
 
+
+@routes.route('admin')
+@login_required
+def admin():
+    # Checks if user is first user (Change to admin boolean)
+    if current_user.id == 1:
+        # If admin = True
+        print('I am an admin!')
+        return render_template("admin.html")
+    else:
+        flash('You are not an admin', category = 'error')
+        return render_template("home.html")
+
+
+
 @routes.route('/')
 @login_required
 def home():

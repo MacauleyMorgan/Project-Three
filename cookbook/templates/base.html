@@ -31,6 +31,10 @@
                     </a></li>
                 <li><a href="{{ url_for('routes.account' )}}">Account <i class="fa fa-user" aria-hidden="true"></i>
                     </a></li>
+                {% if current_user.is_admin == True %}
+                <li><a href="{{ url_for('routes.admin' )}}">Admin <i class="fa fa-user" aria-hidden="true"></i>
+                    </a></li>
+                {% endif %}
                 <li><a href="{{ url_for('auth.logout' )}}">Logout <i class="fa fa-sign-out" aria-hidden="true"></i>
                     </a></li>
             </ul>
@@ -46,6 +50,10 @@
         </a></li>
     <li><a href="{{ url_for('routes.account' )}}">Account <i class="fa fa-user" aria-hidden="true"></i>
         </a></li>
+    {% if current_user.is_admin == True %}
+    <li><a href="{{ url_for('routes.admin' )}}">Admin <i class="fa fa-user" aria-hidden="true"></i>
+        </a></li>
+    {% endif %}
     <li><a href="{{ url_for('auth.logout' )}}">Logout <i class="fa fa-sign-out" aria-hidden="true"></i>
         </a></li>
     </ul>
