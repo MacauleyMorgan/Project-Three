@@ -35,5 +35,13 @@ Grant/Remove Admin Privileges
     </div>
     </div>
 </form>
+<div class="admin-list center-align">
+    <h3>Current Admins</h3>
+    <ul>
+        {% for admin in current_admins %}
+            <li>{{admin}}</li>
+        {% endfor %}
+    </ul>
+</div>
 
 {% endblock %}

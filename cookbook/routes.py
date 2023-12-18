@@ -13,8 +13,9 @@ def admin():
     # Checks if user is first user (Change to admin boolean)
     if current_user.is_admin == True:
         # If admin = True
-        print('I am an admin!')
-        return render_template("admin.html")
+        current_admins = list(User.query.order_by(User.is_admin == True).all())
+        print(current_admins)
+        return render_template("admin.html", current_admins=current_admins)
     else:
         flash('You are not an admin', category = 'error')
         return render_template("home.html")
