@@ -138,6 +138,12 @@ The account page was designed to be collapsible to allow for minimal screen clut
 
 ![Account Desktop Wireframe](/cookbook/docs/Wireframes/Desktop/account-desktop.png "Account Desktop Wireframe")
 
+## Admin
+
+
+## Expand Recipe 
+
+
 # Entity Relationship Diagram & Flow Chart
 ## ERD Diagram
 ![ERD Diagram](/cookbook/docs/Diagrams/erd-diagram.png/ "ERD Diagram")
@@ -177,6 +183,8 @@ Similar to the add recipe function the edit recipe uses the same form however ta
 ![Delete recipe flow chart](/cookbook/docs/Diagrams/delete-recipe-chart.png "Delete recipe flow chart")
 
 The delete recipe function, much like the edit recipe is only available via the your recipes page and can only be used on a recipe that is owned by the current user, the function also has a modal to confirm deletion to prevent accidental deletes.
+
+### Admin Toggle
 
 # Testing
 ## Wave testing
