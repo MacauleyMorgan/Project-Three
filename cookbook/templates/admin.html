@@ -13,7 +13,7 @@ Admin
 <!-- Injects content into the page -->
 {% block content %}
 
-<form method='POST' action="toggle-admin" class="center-align">
+<form method='POST' action="{{url_for('routes.toggle_admin') }}" class="center-align">
     <h2>Current Users</h2>
     <div class="row">
         <!-- Enter user email -->
@@ -24,7 +24,7 @@ Admin
         <!-- Provides tickbox, tick for priveledges, untick to remove -->
         <div class="input-field col s3 offset-s1">
             <label>
-                <input type="checkbox" class="filled-in" checked="checked" />
+                <input name="checkbox" type="checkbox" class="filled-in" checked="checked" />
                 <span>Tick/Untick priveledges</span>
             </label>
         </div>

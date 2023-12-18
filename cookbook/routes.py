@@ -11,7 +11,7 @@ routes = Blueprint('routes', __name__)
 @login_required
 def admin():
     # Checks if user is first user (Change to admin boolean)
-    if current_user.id == 1:
+    if current_user.is_admin == True:
         # If admin = True
         print('I am an admin!')
         return render_template("admin.html")
@@ -19,6 +19,35 @@ def admin():
         flash('You are not an admin', category = 'error')
         return render_template("home.html")
 
+
+@routes.route('toggle_admin', methods=['GET','POST'])
+@login_required
+def toggle_admin():
+    # Linked to form to toggle admin priveledges to users 
+    if request.method == 'POST':
+        email = request.form.get('user-email')
+        checkbox = request.form.get('checkbox')
+        # Check if email is valid
+        user_exists = User.query.filter_by(email=email).first()
+        # Function to change access level
+        if user_exists and user_exists.id != 1:
+            if checkbox == 'on':
+                # User exists in database and access is given
+                user_exists.is_admin = True
+                print(user_exists.first_name, user_exists.is_admin)
+                db.session.commit()
+                flash('User is now an admin', category="success")
+            elif checkbox == None:
+                # User exists in database and access is removed
+                print('User exists and would remove access')
+                user_exists.is_admin = False
+                db.session.commit()
+                flash('User admin rights removed', category='info')
+                return redirect(url_for('routes.admin'))
+        else:
+            # User does not exist in database
+            flash('You can\'t delete the owner', category='error')
+    return render_template("admin.html")
 
 
 @routes.route('/')
