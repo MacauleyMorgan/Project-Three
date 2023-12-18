@@ -38,8 +38,8 @@ Grant/Remove Admin Privileges
 <div class="admin-list center-align">
     <h3>Current Admins</h3>
     <ul>
-        {% for admin in current_admins %}
-            <li>{{admin}}</li>
+        {% for name in current_admin_names %}
+            <li>{{name}}</li>
         {% endfor %}
     </ul>
 </div>

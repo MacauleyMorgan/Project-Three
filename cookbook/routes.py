@@ -14,8 +14,11 @@ def admin():
     if current_user.is_admin == True:
         # If admin = True
         current_admins = list(User.query.order_by(User.is_admin == True).all())
-        print(current_admins)
-        return render_template("admin.html", current_admins=current_admins)
+        current_admin_names = []
+        for admin in current_admins:
+            name = f"{admin.first_name} {admin.last_name}"
+            current_admin_names.append(name)
+        return render_template("admin.html", current_admin_names=current_admin_names)
     else:
         flash('You are not an admin', category = 'error')
         return render_template("home.html")
