@@ -139,14 +139,18 @@ The account page was designed to be collapsible to allow for minimal screen clut
 ![Account Desktop Wireframe](/cookbook/docs/Wireframes/Desktop/account-desktop.png "Account Desktop Wireframe")
 
 ## Admin
+The admin page was designed to allow admin access on the site.
 
-
+![Admin Desktop Wireframe](/cookbook/docs/Wireframes/Desktop/admin-desktop.png "Admin Desktop Wireframe")
 ## Expand Recipe 
+The expand recipe page is active when clicking view on a recipe and queries the individual recipe for display on its own page for viewing.
 
+![Expand recipe Desktop Wireframe](/cookbook/docs/Wireframes/Desktop/expand-recipe-desktop.png "Expand recipe Desktop Wireframe")
 
 # Entity Relationship Diagram & Flow Chart
-## ERD Diagram
-![ERD Diagram](/cookbook/docs/Diagrams/erd-diagram.png/ "ERD Diagram")
+## ERD Diagram'
+
+![ERD Diagram](/cookbook/docs/Diagrams/erd-diagram.png "ERD Diagram")
 
 ## Flow charts
 ### Login/Register
