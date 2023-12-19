@@ -11,7 +11,12 @@ routes = Blueprint('routes', __name__)
 @login_required
 def admin():
     # Checks if user is first user (Change to admin boolean)
-    if current_user.is_admin == True:
+    if current_user.id == 1 and current_user.is_admin == False:
+        current_user.is_admin = True
+        db.session.commit()
+        print(current_user.is_admin)
+        return redirect(url_for('routes.admin'))
+    elif current_user.is_admin == True:
         # If admin = True
         current_admins = list(User.query.order_by(User.is_admin == True).all())
         current_admin_names = []

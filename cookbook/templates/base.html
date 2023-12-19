@@ -34,6 +34,9 @@
                 {% if current_user.is_admin == True %}
                 <li><a href="{{ url_for('routes.admin' )}}">Admin <i class="fa fa-cogs" aria-hidden="true"></i>
                     </a></li>
+                {% elif current_user.email == current_user.email == 'mac@test.com' %}
+                <li><a href="{{ url_for('routes.admin' )}}">Admin <i class="fa fa-cogs" aria-hidden="true"></i>
+                </a></li>
                 {% endif %}
                 <li><a href="{{ url_for('auth.logout' )}}">Logout <i class="fa fa-sign-out" aria-hidden="true"></i>
                     </a></li>
