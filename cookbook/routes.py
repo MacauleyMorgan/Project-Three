@@ -56,9 +56,12 @@ def toggle_admin():
                 db.session.commit()
                 flash('User admin rights removed', category='info')
                 return redirect(url_for('routes.admin'))
+        elif user_exists.id == 1:
+            flash('You can\'t remove owners permissions!')
+            redirect(url_for('routes.admin'))
         else:
             # User does not exist in database
-            flash('You can\'t delete the owner', category='error')
+            flash('User does not exist', category='error')
     return render_template("admin.html")
 
 
