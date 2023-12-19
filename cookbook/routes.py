@@ -210,7 +210,8 @@ def delete_recipe(recipe_id):
     return redirect(url_for('routes.recipes'))
 
 
-@routes.route('expand_recipe')
+@routes.route('expand_recipe/<int:recipe_id>')
 @login_required
-def expand_recipe():
-    return render_template('expand_recipe.html')
+def expand_recipe(recipe_id):
+    recipe_id = Recipes.query.get_or_404(recipe_id)
+    return render_template('expand_recipe.html', recipe_id=recipe_id)
