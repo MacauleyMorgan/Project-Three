@@ -28,3 +28,8 @@ button {
 .footer-text {
     padding-left: 5vw;
 }
+
+.card-container{
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 60%;
+}
