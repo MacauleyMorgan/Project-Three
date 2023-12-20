@@ -38,8 +38,8 @@ View Recipe
             </div>
             {% if current_user.is_admin == True %}
             <div class="row">
-                <a href="{{ url_for('routes.edit_recipe', recipe_id=recipe_id.id) }}" class="btn green darken-1">Edit</a>
-                <a href="{{ url_for('routes.delete_recipe', recipe_id=recipe_id.id) }}" class="btn red darken-1">Delete</a>
+                <a href="{{ url_for('routes.edit_recipe', recipe_id=recipe_id.id) }}" class="btn green darken-1 black-text">Edit</a>
+                <a href="{{ url_for('routes.delete_recipe', recipe_id=recipe_id.id) }}" class="btn red darken-1 black-text">Delete</a>
             </div>
             {% endif %}
         </div>
