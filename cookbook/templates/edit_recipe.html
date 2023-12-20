@@ -22,29 +22,29 @@ Edit recipe
                     <!-- Row to get name and time -->
                     <div class="row">
                         <div class="input-field col s8">
-                            <input name="recipe-name" type="text" class="validate" value="{{recipe.name}}">
+                            <input id="recipe-name" name="recipe-name" type="text" class="validate" value="{{recipe.name}}">
                             <label for="recipe-name">Recipe Name</label>
                         </div>
                         <div class="input-field col s3 offset-s1">
-                            <input name="recipe-time" type="number" class="validate" value="{{recipe.recipe_time}}">
+                            <input id="recipe-time" name="recipe-time" type="number" class="validate" value="{{recipe.recipe_time}}">
                             <label for="recipe-time">Time (Minutes)</label>
                         </div>
                     </div>
                     <!-- Row to get ingredients and steps -->
                     <div class="row">
                         <div class="input-field col s6">
-                            <input name="recipe-ingredients" type="text" class="validate" value="{{recipe.recipe_ingredients}}">
+                            <input id="recipe-ingredients" name="recipe-ingredients" type="text" class="validate" value="{{recipe.recipe_ingredients}}">
                             <label for="recipe-ingredients">Recipe Ingredients</label>
                         </div>
                         <div class="input-field col s6">
-                            <input name="recipe-steps" type="text" class="validate" value="{{recipe.recipe_steps}}">
+                            <input id="recipe-steps" name="recipe-steps" type="text" class="validate" value="{{recipe.recipe_steps}}">
                             <label for="recipe-steps">Recipe Steps</label>
                         </div>
                     </div>
                     <!-- Image upload and submit button -->
                     <div class="row">
                         <div class="input-field col s9">
-                            <input name="recipe-image" type="text" class="validate" value="{{recipe.recipe_image}}">
+                            <input id="recipe-image" name="recipe-image" type="text" class="validate" value="{{recipe.recipe_image}}">
                             <label for="recipe-image" >Image link (Please use tinypic to generate link)</label>
                         </div>
                         <div class="input-field col s2 offset-s1">
