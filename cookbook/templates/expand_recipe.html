@@ -39,13 +39,13 @@ View Recipe
             {% if current_user.is_admin == True %}
             <div class="row">
                 <a href="{{ url_for('routes.edit_recipe', recipe_id=recipe_id.id) }}" class="btn green darken-1">Edit</a>
-                <a href="#modal-{{recipe.id}}" class="btn red darken-1">Delete</a>
+                <a href="#modal-{{recipe_id.id}}" class="btn red darken-1">Delete</a>
             </div>
             <!-- Modal Structure -->
-            <div id="modal-{{recipe.id}}" class="modal">
+            <div id="modal-{{recipe_id.id}}" class="modal">
                 <div class="modal-content">
                 <p>Are you sure you would like to delete?</p>
-                <a href="{{ url_for('routes.delete_recipe', recipe_id=recipe.id) }}" class="btn red darken-1">Delete</a>
+                <a href="{{ url_for('routes.delete_recipe', recipe_id=recipe_id.id) }}" class="btn red darken-1">Delete</a>
                 </div>
             </div>
             {% endif %}
