@@ -10,6 +10,9 @@ routes = Blueprint('routes', __name__)
 @routes.route('admin')
 @login_required
 def admin():
+    """
+    Function to display admin page, first user to sign up will automatically become an admin.
+    """
     # Checks if user is first user (Change to admin boolean)
     if current_user.id == 1 and current_user.is_admin == False:
         current_user.is_admin = True
@@ -34,7 +37,9 @@ def admin():
 @routes.route('toggle_admin', methods=['GET','POST'])
 @login_required
 def toggle_admin():
-    # Linked to form to toggle admin priveledges to users 
+    """
+    Linked to form to enable/diables admin permissions on admin page, protects user with ID of 1 from losing permissions
+    """ 
     if request.method == 'POST':
         email = request.form.get('user-email')
         checkbox = request.form.get('checkbox')
@@ -68,6 +73,9 @@ def toggle_admin():
 @routes.route('/')
 @login_required
 def home():
+    """
+    Returns home page on site showing the communities recipes
+    """
     recipes = list(Recipes.query.order_by(Recipes.name).all())
     return render_template("home.html", recipes=recipes)
 
@@ -76,6 +84,9 @@ def home():
 @routes.route('recipes', methods=['GET', 'POST'])
 @login_required
 def recipes():
+    """
+    Displays recipes page on site, loads the recipes owned by the current user ID for modification/deletion
+    """
     recipes = list(Recipes.query.order_by(Recipes.user_id).all())
     my_recipes = list()
     for recipe in recipes:
@@ -90,6 +101,9 @@ def recipes():
 @routes.route('account', methods=['GET', 'POST'])
 @login_required
 def account():
+    """
+    Renders account page
+    """
     return render_template("account.html")
 
 
@@ -98,6 +112,9 @@ def account():
 @routes.route('email_change/<int:current_user_id>', methods=['GET', 'POST'])
 @login_required
 def email_change(current_user_id):
+    """
+    Function to change email assocoated with account, checks if email is already in use before assigning it to the user
+    """
     user = User.query.get_or_404(current_user_id)
     if request.method == 'POST':
         email = request.form.get('new-email')
@@ -116,6 +133,10 @@ def email_change(current_user_id):
 @routes.route('password_change/<int:current_user_id>', methods=['GET', 'POST'])
 @login_required
 def password_change(current_user_id):
+    """
+    Allows usere to change password if they can confirm the previous password they have used, 
+    If the current password matches the one in database, it will change it to the new password on submission
+    """
     if request.method == 'POST':
         user = User.query.get_or_404(current_user_id)
         old_password = request.form.get('old-password')
@@ -139,6 +160,11 @@ def password_change(current_user_id):
 # Function to delete recipes
 @routes.route('delete_user/<int:current_user_id>', methods=['GET', 'POST'])
 def delete_user(current_user_id): 
+    """
+    Takes user ID of current user
+    Checks email written in form is equal to db storage as verification
+    Deletes user account if emails match
+    """
     user = User.query.get_or_404(current_user_id)
     if request.method == 'POST':
         # Checks email written into form to verify deletion
@@ -159,6 +185,11 @@ def delete_user(current_user_id):
 @routes.route('/edit_recipe/<int:recipe_id>', methods=['GET', 'POST'])
 @login_required
 def edit_recipe(recipe_id):
+    """
+    Takes recipe ID from card click on recipe page
+    Loads current recipe into form
+    On submission, overwrites db with form data supplied for recipe
+    """
     recipe = Recipes.query.get_or_404(recipe_id)
     if request.method == 'POST':
         recipe.name = request.form.get('recipe-name')
@@ -175,6 +206,11 @@ def edit_recipe(recipe_id):
 @routes.route('/add_recipe', methods=['GET', 'POST'])
 @login_required
 def add_recipe():
+    """
+    Linked to add recipe page
+    On posting the form the recipe is validated for character length in fields
+    If pass, submit to database
+    """
     if request.method == 'POST':
         recipe_name = request.form.get('recipe-name')
         recipe_time = request.form.get('recipe-time')
@@ -207,6 +243,9 @@ def add_recipe():
 @routes.route('delete_recipe/<int:recipe_id>')
 @login_required
 def delete_recipe(recipe_id):
+    """
+    Deletes recipe clicked on by user from the recipes page
+    """
     recipe = Recipes.query.get_or_404(recipe_id)
     db.session.delete(recipe)
     db.session.commit()
@@ -216,5 +255,8 @@ def delete_recipe(recipe_id):
 @routes.route('expand_recipe/<int:recipe_id>')
 @login_required
 def expand_recipe(recipe_id):
+    """
+    Lets user click on recipe on home page for expansion onto its own document
+    """
     recipe_id = Recipes.query.get_or_404(recipe_id)
     return render_template('expand_recipe.html', recipe_id=recipe_id)

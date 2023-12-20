@@ -2,6 +2,9 @@ from cookbook import db
 from flask_login import UserMixin
 
 class User(db.Model, UserMixin):
+    """
+    Model to manage users in the database
+    """
     # Schema for the users of the site
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String, nullable=False)
@@ -22,6 +25,9 @@ class User(db.Model, UserMixin):
 
 
 class Recipes(db.Model):
+    """
+    Model for managing recipes
+    """
     # Recipe id
     id = db.Column(db.Integer, primary_key=True)
     # Recipe name

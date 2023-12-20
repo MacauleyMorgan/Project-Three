@@ -8,6 +8,9 @@ auth = Blueprint('auth', __name__)
 
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
+    """
+    Allows user to login to the site via form
+    """
     if request.method == 'POST':
         """
         This will action when button is clicked to login
@@ -32,12 +35,18 @@ def login():
 @auth.route('/logout')
 @login_required
 def logout():
+    """
+    Logs out user
+    """
     logout_user()
     return redirect(url_for('auth.login'))
 
 
 @auth.route('/signup', methods=['GET', 'POST'])
 def signup():
+    """
+    Allows user to register into the User db model by providing sinmple information
+    """
     if request.method == 'POST':
         """
         This will action when button is clicked to register
