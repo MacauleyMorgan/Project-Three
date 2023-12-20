@@ -268,4 +268,6 @@ def expand_recipe(recipe_id):
     Lets user click on recipe on home page for expansion onto its own document
     """
     recipe_id = Recipes.query.get_or_404(recipe_id)
-    return render_template('expand_recipe.html', recipe_id=recipe_id)
+    recipe_owner = User.query.get_or_404(recipe_id.user_id)
+    print(recipe_owner)
+    return render_template('expand_recipe.html', recipe_id=recipe_id, recipe_owner=recipe_owner)
