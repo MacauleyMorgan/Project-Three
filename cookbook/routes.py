@@ -190,15 +190,20 @@ def edit_recipe(recipe_id):
     Loads current recipe into form
     On submission, overwrites db with form data supplied for recipe
     """
-    recipe = Recipes.query.get_or_404(recipe_id)
-    if request.method == 'POST':
-        recipe.name = request.form.get('recipe-name')
-        recipe.recipe_time = request.form.get('recipe-time')
-        recipe.recipe_image = request.form.get('recipe-image')
-        recipe.recipe_ingredients = request.form.get('recipe-ingredients')
-        recipe.recipe_steps = request.form.get('recipe-steps')
-        db.session.commit()
-        return redirect(url_for('routes.recipes'))
+    find_recipe = Recipes.query.get_or_404(recipe_id)
+    if current_user.is_admin == True or current_user.id == find_recipe.user_id:
+        recipe = Recipes.query.get_or_404(recipe_id)
+        if request.method == 'POST':
+            recipe.name = request.form.get('recipe-name')
+            recipe.recipe_time = request.form.get('recipe-time')
+            recipe.recipe_image = request.form.get('recipe-image')
+            recipe.recipe_ingredients = request.form.get('recipe-ingredients')
+            recipe.recipe_steps = request.form.get('recipe-steps')
+            db.session.commit()
+            return redirect(url_for('routes.recipes'))
+    else:
+        flash('You do not have permissions to remove this recipe', category='error')
+        return redirect(url_for('routes.home'))
     return render_template("edit_recipe.html", recipe=recipe)
 
 
@@ -247,7 +252,6 @@ def delete_recipe(recipe_id):
     Deletes recipe clicked on by user from the recipes page
     """
     find_recipe = Recipes.query.get_or_404(recipe_id)
-    print(find_recipe)
     if current_user.is_admin == True or current_user.id == find_recipe.owner:
         recipe = Recipes.query.get_or_404(recipe_id)
         db.session.delete(recipe)
