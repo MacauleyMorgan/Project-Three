@@ -189,6 +189,7 @@ Similar to the add recipe function the edit recipe uses the same form however ta
 The delete recipe function, much like the edit recipe is only available via the your recipes page and can only be used on a recipe that is owned by the current user, the function also has a modal to confirm deletion to prevent accidental deletes.
 
 ### Admin Toggle
+The admin toggle function allows for a user to use the admin access panel to enable or disable additional permissions to users on the site, the checkbox next to the input field will (if ticked) enable permissions to the email submitted, if not checked and an email is submitted it will remove permissions. The function does not allow the user with the id of 1 to have permissions removed. 
 
 # Testing
 ## Wave testing
