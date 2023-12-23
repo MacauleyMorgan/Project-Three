@@ -15,7 +15,7 @@ Error 500
 {% if current_user.is_authenticated %}
 <!-- If user is logged in -->
 <div class="container center-align">
-    <h3>Bad Request!</h3>
+    <h2>Bad Request!</h2>
     <br>
     <p>I'm sorry {{current_user.first_name}}, this request threw an error!</p>
     <p>If you would like to navigate back home, please use the button below</p>
@@ -26,7 +26,7 @@ Error 500
 {% else %}
 <!-- If user is not logged in -->
 <div class="container center-align">
-    <h3>Bad Request!</h3>
+    <h2>Bad Request!</h2>
     <br>
     <p>I'm sorry this page submitted a bad request.</p>
     <p>If you were trying to access the site, please try again with the links below</p>
