@@ -261,8 +261,6 @@ Jinja Templating was used alongside Flask modules in order to create Python impl
 ## External utility
 ### Font Awesome
 Font Awesome was used to generate icons for the website and to style the links in a more reader friendly fashion
-### Favicon
-A Favicon was generated to display a recognisable icon in the browser tab in order to be more user friendly on the front end
 
 </details>
 <details>
