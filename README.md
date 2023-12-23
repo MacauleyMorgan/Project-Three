@@ -236,6 +236,22 @@ The admin toggle function allows for a user to use the admin access panel to ena
 ![Wave testing Login](/cookbook/docs/testing/wave/desktop/wave-login-desktop.png "Wave testing Login")
 
 ## Lighthouse Testing
+### Home
+![Lighthouse testing Home](/cookbook/docs/testing/lighthouse/home-lighthouse.png "Lighthouse testing Home")
+### Admin
+![Lighthouse testing Admin](/cookbook/docs/testing/lighthouse/admin-lighthouse.png "Lighthouse testing Admin")
+### Account
+![Lighthouse testing Account](/cookbook/docs/testing/lighthouse/account-lighthouse.png "Lighthouse testing Account")
+### Add Recipe
+![Lighthouse testing Add Recipe](/cookbook/docs/testing/lighthouse/add-recipe-lighthouse.png "Lighthouse testing Add Recipe")
+### Edit Recipe
+![Lighthouse testing Edit Recipe](/cookbook/docs/testing/lighthouse/edit-recipe-lighthouse.png "Lighthouse testing Edit Recipe")
+### Recipes
+![Lighthouse testing Recipes](/cookbook/docs/testing/lighthouse/recipes-lighthouse.png "Lighthouse testing Recipes")
+### Sign up
+![Lighthouse testing Sign up](/cookbook/docs/testing/lighthouse/signup-lighthouse.png "Lighthouse testing Sign up")
+### Login
+![Lighthouse testing Login](/cookbook/docs/testing/lighthouse/login-lighthouse.png "Lighthouse testing Login")
 ## Functional Testing
 ### Bugs
 
