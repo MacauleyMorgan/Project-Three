@@ -34,7 +34,7 @@ button {
 }
 
 .card{
-    height: 220px;
+    min-height: 220px;
 }
 
 .card-title{
