@@ -215,24 +215,34 @@ The admin toggle function allows for a user to use the admin access panel to ena
 
 ## Wave testing
 ### 404
+The 404 page was wave tested and reported the following.
 ![Wave testing 404](/cookbook/docs/testing/wave/desktop/wave-404-desktop.png "Wave testing 404")
 ### 500
+The 500 page fed these stats back when wave tested
 ![Wave testing 500](/cookbook/docs/testing/wave/desktop/wave-500-desktop.png "Wave testing 500")
 ### Home
+The home page gave the following results when ran through the wave tool
 ![Wave testing Home](/cookbook/docs/testing/wave/desktop/wave-home-desktop.png "Wave testing Home")
 ### Admin
+The admin page reported the following results when using the wave tool.
 ![Wave testing Admin](/cookbook/docs/testing/wave/desktop/wave-admin-desktop.png "Wave testing Admin")
 ### Account
+The account page was also waved, and returned these results
 ![Wave testing Account](/cookbook/docs/testing/wave/desktop/wave-account-desktop.png "Wave testing Account")
 ### Add Recipe
+The add a recipe page returned the following
 ![Wave testing Add Recipe](/cookbook/docs/testing/wave/desktop/wave-add-recipe-desktop.png "Wave testing Add Recipe")
 ### Edit Recipe
+The edit recipe page returned these results when waved
 ![Wave testing Edit Recipe](/cookbook/docs/testing/wave/desktop/wave-edit-recipe-desktop.png "Wave testing Edit Recipe")
 ### Recipes
+The recipe page was waved and gave the below stats
 ![Wave testing Recipes](/cookbook/docs/testing/wave/desktop/wave-recipes-desktop.png "Wave testing Recipes")
 ### Sign up
+The sign-up page also was ran through the tool, here are the results
 ![Wave testing Sign up](/cookbook/docs/testing/wave/desktop/wave-signup-desktop.png "Wave testing Sign up")
 ### Login
+The login page returned the following results
 ![Wave testing Login](/cookbook/docs/testing/wave/desktop/wave-login-desktop.png "Wave testing Login")
 
 ## Lighthouse Testing
