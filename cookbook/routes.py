@@ -271,3 +271,12 @@ def expand_recipe(recipe_id):
     recipe_owner = User.query.get_or_404(recipe_id.user_id)
     print(recipe_owner)
     return render_template('expand_recipe.html', recipe_id=recipe_id, recipe_owner=recipe_owner)
+
+
+"""
+Error handling section
+"""
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404

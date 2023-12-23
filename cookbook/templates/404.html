@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+<!-- Injects window title into the page -->
+{% block title %}
+404 Error
+{% endblock %}
+
+<!-- Injects h2 title into the page -->
+{% block pageheader %}
+Error 404
+{% endblock %}
+
+<!-- Injects content into the page -->
+{% block content %}
+{% if current_user.is_authenticated %}
+<!-- If user is logged in -->
+<div class="container center-align">
+    <h3>Page not found!</h3>
+    <br>
+    <p>I'm sorry {{current_user.first_name}}, this page does not exist.</p>
+    <p>If you would like to navigate back home, please use the button below</p>
+    <br>
+    <a class="btn btn-large black-text" href="{{ url_for('routes.home' )}}">Home <i class="fa fa-home black-text" aria-hidden="true"></i>
+    </a>
+</div>
+{% else %}
+<!-- If user is not logged in -->
+<div class="container center-align">
+    <h3>Page not found!</h3>
+    <br>
+    <p>I'm sorry this page does not exist/you are not logged in.</p>
+    <p>If you would like to login, please use the button below</p>
+    <br>
+    <a class="btn btn-large black-text" href="{{ url_for('auth.login' )}}">Login
+    </a>
+    <a class="btn btn-large black-text" href="{{ url_for('auth.login' )}}">Sign Up
+    </a>
+</div>
+{% endif %}
+{% endblock %}
