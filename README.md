@@ -297,4 +297,7 @@ The site was created using the template provided by code institute regarding mil
 ## Books
 During the creation of this site I used the book "Building Web Apps with Python and Flask" by Malhar Lathkar for help troubleshooting and general tips on creating the site
 
+## Code
+Code written inside the files was written by myself solely with the exception of components and javascript to utilize the respective components, in which I gained the structure through the materialize framework was used.
+
 Site made for educational purposes only for assessment by Code Institute
