@@ -1,5 +1,15 @@
 # Milestone Project Three - Macs Cookbook
-# User Stories
+# Contents
+1. [User Stories](#UserStories)
+2. [Features](#Features)
+3. [Wireframes](#Wireframes)
+4. [ERD](#ERD)
+5. [Testing](#Testing)
+6. [Technologies](#Technologies)
+7. [Deployment](#Deployment)
+8. [Credits](#Credits)
+
+# User Stories <a name="UserStories"></a>
 ## Site ownership goals
 The site was created for a fictional owner who requires a cookbook app for users to log in and share recipes for a community culinary experience.
 ## Visitor/User Goals
@@ -27,7 +37,7 @@ As an admin, I would like to be able to grant/remove admin access to trusted use
 
 As an admin, I would like to see which users currently have admin privileges on the site for a clear picture of who has access
 
-# Features
+# Features <a name="Features"></a>
 ## Site wide
 The implementation of a global navbar and footer to make a uniform user experience has been completed site wide
 - As a logged in user I would like to be able to navigate around the site structure easily and understand the layout of the site instinctively
@@ -102,7 +112,7 @@ The user has the option to remove/delete recipes from their account and the data
 The user can delete the account from the website permanently
 - As a logged user, I would like to be able to delete my account if I decide to leave the site at a later date
 
-# Wireframes
+# Wireframes <a name="Wireframes"></a>
 ## Login
 Wire frames of the login page were created to provide a positive user experience, offering clear contrasts and large font sizes with minimal clutter
 
@@ -147,7 +157,7 @@ The expand recipe page is active when clicking view on a recipe and queries the 
 
 ![Expand recipe Desktop Wireframe](/cookbook/docs/Wireframes/Desktop/expand-recipe-desktop.png "Expand recipe Desktop Wireframe")
 
-# Entity Relationship Diagram & Flow Chart
+# Entity Relationship Diagram & Flow Chart <a name="ERD"></a>
 ## ERD Diagram'
 
 ![ERD Diagram](/cookbook/docs/Diagrams/erd-diagram.png "ERD Diagram")
@@ -191,7 +201,7 @@ The delete recipe function, much like the edit recipe is only available via the 
 ### Admin Toggle
 The admin toggle function allows for a user to use the admin access panel to enable or disable additional permissions to users on the site, the checkbox next to the input field will (if ticked) enable permissions to the email submitted, if not checked and an email is submitted it will remove permissions. The function does not allow the user with the id of 1 to have permissions removed. 
 
-# Testing
+# Testing <a name="Testing"></a>
 ## Wave testing
 ### 404
 ![Wave testing 404](/cookbook/docs/testing/wave/desktop/wave-404-desktop.png "Wave testing 404")
@@ -218,7 +228,7 @@ The admin toggle function allows for a user to use the admin access panel to ena
 ## Functional Testing
 ### Bugs
 
-# Technologies Utilised
+# Technologies Utilised <a name="Languages"></a>
 ## HTML
 HTML5 Was used to create the front end skeleton of the website, semantic HTML in the form of Head, Nav, Main and Footer tags were used to create appropriate structure.
 ## CSS
@@ -239,7 +249,7 @@ Font Awesome was used to generate icons for the website and to style the links i
 ### Favicon
 A Favicon was generated to display a recognisable icon in the browser tab in order to be more user friendly on the front end
 
-# Deployment
+# Deployment <a name="Deployment"></a>
 ## GitHub version control
 
 The site was created using the template provided by code institute regarding milestone project 3. The code was written in gitpod and pushed using the gitpod source control option on the side bar of the application.
@@ -263,7 +273,7 @@ The site was created using the template provided by code institute regarding mil
 
 ## Deployment to Heroku
 
-# Credits / Acknowledgements
+# Credits / Acknowledgements <a name="Credits"></a>
 ## Books
 During the creation of this site I used the book "Building Web Apps with Python and Flask" by Malhar Lathkar for help troubleshooting and general tips on creating the site
 
