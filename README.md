@@ -193,15 +193,25 @@ The admin toggle function allows for a user to use the admin access panel to ena
 
 # Testing
 ## Wave testing
+### 404
 ![Wave testing 404](/cookbook/docs/testing/wave/desktop/wave-404-desktop.png "Wave testing 404")
+### 500
 ![Wave testing 500](/cookbook/docs/testing/wave/desktop/wave-500-desktop.png "Wave testing 500")
+### Home
 ![Wave testing Home](/cookbook/docs/testing/wave/desktop/wave-home-desktop.png "Wave testing Home")
+### Admin
 ![Wave testing Admin](/cookbook/docs/testing/wave/desktop/wave-admin-desktop.png "Wave testing Admin")
+### Account
 ![Wave testing Account](/cookbook/docs/testing/wave/desktop/wave-account-desktop.png "Wave testing Account")
+### Add Recipe
 ![Wave testing Add Recipe](/cookbook/docs/testing/wave/desktop/wave-add-recipe-desktop.png "Wave testing Add Recipe")
+### Edit Recipe
 ![Wave testing Edit Recipe](/cookbook/docs/testing/wave/desktop/wave-edit-recipe-desktop.png "Wave testing Edit Recipe")
+### Recipes
 ![Wave testing Recipes](/cookbook/docs/testing/wave/desktop/wave-recipes-desktop.png "Wave testing Recipes")
+### Sign up
 ![Wave testing Sign up](/cookbook/docs/testing/wave/desktop/wave-404-signup.png "Wave testing Sign up")
+### Login
 ![Wave testing Login](/cookbook/docs/testing/wave/desktop/wave-404-login.png "Wave testing Login")
 
 ## Lighthouse Testing
