@@ -1,3 +1,7 @@
+::-webkit-scrollbar{
+    width: 1px;
+}
+
 body {
     display: flex;
     min-height: 100vh;
@@ -29,7 +33,17 @@ button {
     padding-left: 5vw;
 }
 
+.card{
+    height: 220px;
+}
+
+.card-title{
+    height: 75px;
+    overflow-y: scroll;
+}
+
 .card-container{
     background-color: rgba(0, 0, 0, 0.6);
     width: 60%;
+    height: 220px;
 }

@@ -22,7 +22,6 @@ Your Recipes
         <div class="card-content black-text center-align">
             <span class="card-title"><strong>{{recipe.name}}</strong></span>
             <strong><p>{{recipe.recipe_time}} Minutes</p>
-            <p>{{recipe.recipe_ingredients}}</p></strong>
         </div>
         <div class="card-action">
           <a href="{{ url_for('routes.edit_recipe', recipe_id=recipe.id) }}" class="btn green darken-1 black-text">Edit</a>

@@ -22,7 +22,6 @@ Home
           <div class="card-content white-text center-align container card-container">
               <span class="card-title">{{recipe.name}}</span>
               <p>{{recipe.recipe_time}} Minutes</p>
-              <p>{{recipe.recipe_ingredients}}</p>
               </br>
               <a href="{{ url_for('routes.expand_recipe', recipe_id=recipe.id) }}" class="btn green darken-1 black-text"><strong>View</strong></a>
           </div>
