@@ -60,6 +60,11 @@ On the admin page, an admin can add or remove access to admin features using the
 
 The admin page also allows admins to view other admins on the site for clarity to protect against unwanted or unneccesary access of the privileges.
 
+## Error Pages
+### 404 Error
+An error page was designed for a 404 error and allows the user to navigate back to the home page if logged in using a button on the page, if the user is not logged in it will direct them to the login page
+### 500 Error
+An error page was designed for a 500 error and allows the user to navigate back to the home page if logged in using a button on the page, if the user is not logged in it will direct them to the login page
 ## Features left to implement
 ### Forgot Password Form
 A feature that can be implemented in the future would be the forgot password form, I would place this at the bottom of the login page and use the following steps to implement the feature.
@@ -67,8 +72,11 @@ A feature that can be implemented in the future would be the forgot password for
 - Fill email form
 - Query database for email
 - If it exists, connect to an API to send email and allow the user to change password using the change password function.
-## Error Pages
-## CRUD Functions
+</details>
+
+<details>
+<summary><b>CRUD Functions</b></summary>
+
 ### Create
 Sign In function
 - As a logged out user, I would like to be able to sign in and access the site
