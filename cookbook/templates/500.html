@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+<!-- Injects window title into the page -->
+{% block title %}
+500 Error
+{% endblock %}
+
+<!-- Injects h2 title into the page -->
+{% block pageheader %}
+Error 500
+{% endblock %}
+
+<!-- Injects content into the page -->
+{% block content %}
+{% if current_user.is_authenticated %}
+<!-- If user is logged in -->
+<div class="container center-align">
+    <h3>Bad Request!</h3>
+    <br>
+    <p>I'm sorry {{current_user.first_name}}, this request threw an error!</p>
+    <p>If you would like to navigate back home, please use the button below</p>
+    <br>
+    <a class="btn btn-large black-text" href="{{ url_for('routes.home' )}}">Home <i class="fa fa-home black-text" aria-hidden="true"></i>
+    </a>
+</div>
+{% else %}
+<!-- If user is not logged in -->
+<div class="container center-align">
+    <h3>Bad Request!</h3>
+    <br>
+    <p>I'm sorry this page submitted a bad request.</p>
+    <p>If you were trying to access the site, please try again with the links below</p>
+    <br>
+    <a class="btn btn-large black-text" href="{{ url_for('auth.login' )}}">Login
+    </a>
+    <a class="btn btn-large black-text" href="{{ url_for('auth.login' )}}">Sign Up
+    </a>
+</div>
+{% endif %}
+{% endblock %}
