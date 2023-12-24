@@ -284,6 +284,17 @@ The login page was also assessed and returned the following, again this page was
 
 </details>
 <details>
+<summary>Language Validation</summary>
+## HTML
+The html parts of the website have been ran through validation software to ensure compliance with HTML standards on the web. You can see the reports below.
+## CSS
+The stylesheets were assessed using jigsaw to analyse CSS compliance with standard practises and returned the following.
+## JavaScript/jQuery
+The JavaScript/JQuery initialisation code was assessed using JSLint and returned the following.
+## Python
+The python code was ran through the validation software to ensure it is pep8 compliant and returned the following.
+</details>
+<details>
 <summary><b>Technologies Utilized</b></summary>
 
 # Technologies Utilised
