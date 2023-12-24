@@ -199,7 +199,23 @@ def edit_recipe(recipe_id):
             recipe.recipe_image = request.form.get('recipe-image')
             recipe.recipe_ingredients = request.form.get('recipe-ingredients')
             recipe.recipe_steps = request.form.get('recipe-steps')
-            db.session.commit()
+            if len(request.form.get('recipe-name')) < 3:
+                flash('Recipe name not long enough!',
+                category = 'error')
+            elif len(request.form.get('recipe-image')) < 1:
+                flash('Provide a valid image link',
+                category = 'error')
+            elif len(request.form.get('recipe-time')) <= 1:
+                flash('Provide a valid time',
+                category = 'error')
+            elif len(request.form.get('recipe-ingredients')) < 3:
+                flash('Provide ingredients for recipe',
+                category = 'error')
+            elif len(request.form.get('recipe-steps')) < 3:
+                flash('Provide recipe steps',
+                category = 'error')
+            else:
+                db.session.commit()
             return redirect(url_for('routes.recipes'))
     else:
         flash('You do not have permissions to remove this recipe', category='error')
