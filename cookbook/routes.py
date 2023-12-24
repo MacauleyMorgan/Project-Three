@@ -43,30 +43,35 @@ def toggle_admin():
     if request.method == 'POST':
         email = request.form.get('user-email')
         checkbox = request.form.get('checkbox')
-        # Check if email is valid
-        user_exists = User.query.filter_by(email=email).first()
-        # Function to change access level
-        if user_exists and user_exists.id != 1:
-            if checkbox == 'on':
-                # User exists in database and access is given
-                user_exists.is_admin = True
-                print(user_exists.first_name, user_exists.is_admin)
-                db.session.commit()
-                flash('User is now an admin', category="success")
-                return redirect(url_for('routes.admin'))
-            elif checkbox == None:
-                # User exists in database and access is removed
-                print('User exists and would remove access')
-                user_exists.is_admin = False
-                db.session.commit()
-                flash('User admin rights removed', category='info')
-                return redirect(url_for('routes.admin'))
-        elif user_exists.id == 1:
-            flash('You can\'t remove owners permissions!')
-            redirect(url_for('routes.admin'))
+        if len(email) < 3:
+            flash('Please enter a valid email',
+            category = 'error')
         else:
-            # User does not exist in database
-            flash('User does not exist', category='error')
+            # Check if email is valid
+            user_exists = User.query.filter_by(email=email).first()
+            # Function to change access level
+            if user_exists and user_exists.id != 1:
+                if checkbox == 'on':
+                    # User exists in database and access is given
+                    user_exists.is_admin = True
+                    print(user_exists.first_name, user_exists.is_admin)
+                    db.session.commit()
+                    flash('User is now an admin', category="success")
+                    return redirect(url_for('routes.admin'))
+                elif checkbox == None:
+                    # User exists in database and access is removed
+                    print('User exists and would remove access')
+                    user_exists.is_admin = False
+                    db.session.commit()
+                    flash('User admin rights removed', category='info')
+                    return redirect(url_for('routes.admin'))
+            elif user_exists.id == 1:
+                flash('You can\'t remove owners permissions!',
+                category = 'error')
+                redirect(url_for('routes.admin'))
+            else:
+                # User does not exist in database
+                flash('User does not exist', category='error')
     return render_template("admin.html")
 
 
