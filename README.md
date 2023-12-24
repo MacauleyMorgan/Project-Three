@@ -285,6 +285,7 @@ The login page was also assessed and returned the following, again this page was
 </details>
 <details>
 <summary>Language Validation</summary>
+
 ## HTML
 The html parts of the website have been ran through validation software to ensure compliance with HTML standards on the web. You can see the reports below.
 ## CSS
