@@ -60,6 +60,8 @@ On the admin page, an admin can add or remove access to admin features using the
 
 The admin page also allows admins to view other admins on the site for clarity to protect against unwanted or unneccesary access of the privileges.
 
+Additionally, having admin permission also lets users edit and delete recipes on the home page that they do not own to ensure compliance with site etiquette.
+
 ## Error Pages
 ### 404 Error
 An error page was designed for a 404 error and allows the user to navigate back to the home page if logged in using a button on the page, if the user is not logged in it will direct them to the login page
@@ -247,20 +249,28 @@ The login page returned the following results
 
 ## Lighthouse Testing
 ### Home
+The website, in addition to using the wave tool was assessed using the Lighthouse technology of Google chrome, when using that technology on the home page it gave these stats.
 ![Lighthouse testing Home](/cookbook/docs/testing/lighthouse/home-lighthouse.png "Lighthouse testing Home")
 ### Admin
+The admin page related the below stats when using the tool.
 ![Lighthouse testing Admin](/cookbook/docs/testing/lighthouse/admin-lighthouse.png "Lighthouse testing Admin")
 ### Account
+the account page was also put in to lighthouse and returned these values.
 ![Lighthouse testing Account](/cookbook/docs/testing/lighthouse/account-lighthouse.png "Lighthouse testing Account")
 ### Add Recipe
+When using Lighthouse on the add recipe page, it returns this analysis.
 ![Lighthouse testing Add Recipe](/cookbook/docs/testing/lighthouse/add-recipe-lighthouse.png "Lighthouse testing Add Recipe")
 ### Edit Recipe
+The edit recipe page analysis from lighthouse is as follows.
 ![Lighthouse testing Edit Recipe](/cookbook/docs/testing/lighthouse/edit-recipe-lighthouse.png "Lighthouse testing Edit Recipe")
 ### Recipes
+When assessing the recipes page in lighthouse, it returns these values.
 ![Lighthouse testing Recipes](/cookbook/docs/testing/lighthouse/recipes-lighthouse.png "Lighthouse testing Recipes")
 ### Sign up
+The sign-up page was also assessed, the report purported the following. The page unfortunately did not return as high a score as the others majoritively due to unused JavaScript. These scripts are inherited from the base template as initializes site wide.
 ![Lighthouse testing Sign up](/cookbook/docs/testing/lighthouse/signup-lighthouse.png "Lighthouse testing Sign up")
 ### Login
+The login page was also assessed and returned the following, again this page was negatively impacted during these tests by loading unused JavaScript on the page as a result of inheriting from the base template.
 ![Lighthouse testing Login](/cookbook/docs/testing/lighthouse/login-lighthouse.png "Lighthouse testing Login")
 ## Functional Testing
 ### Bugs
