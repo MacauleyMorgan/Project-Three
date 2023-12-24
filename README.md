@@ -288,12 +288,119 @@ The login page was also assessed and returned the following, again this page was
 
 ## HTML
 The html parts of the website have been ran through validation software to ensure compliance with HTML standards on the web. You can see the reports below.
+### Home
+![Home HTML Validation](/cookbook/docs/testing/validators/html/home-html.png "Home HTML Validation")
+### Account
+![Account HTML Validation](/cookbook/docs/testing/validators/html/account-html.png "Account HTML Validation")
+### Admin
+![Admin HTML Validation](/cookbook/docs/testing/validators/html/admin-html.png "Admin HTML Validation")
+### Recipes
+![Recipes HTML Validation](/cookbook/docs/testing/validators/html/recipes-html.png "Recipes HTML Validation")
+### Add Recipe
+![Add Recipe HTML Validation](/cookbook/docs/testing/validators/html/add-recipe-html.png "Add Recipe HTML Validation")
+### Edit Recipe
+![Edit Recipe HTML Validation](/cookbook/docs/testing/validators/html/edit-recipe-html.png "Edit Recipe HTML Validation")
+### Expand Recipe
+#### Admin
+![Expand Admin HTML Validation](/cookbook/docs/testing/validators/html/expand-recipe-admin-html.png "Expand Admin HTML Validation")
+#### Non Admin
+![Expand Non Admin HTML Validation](/cookbook/docs/testing/validators/html/expand-recipe-html.png "Expand Non Admin HTML Validation")
+### Login
+![Login HTML Validation](/cookbook/docs/testing/validators/html/login-html.png "Login HTML Validation")
+### Sign Up
+![Sign Up HTML Validation](/cookbook/docs/testing/validators/html/signup-html.png "Sign Up HTML Validation")
+
 ## CSS
 The stylesheets were assessed using jigsaw to analyse CSS compliance with standard practises and returned the following.
+![CSS Validation](/cookbook/docs/testing/validators/css/styles-css.png "CSS Validation")
 ## JavaScript/jQuery
 The JavaScript/JQuery initialisation code was assessed using JSLint and returned the following.
+![JS Validation](/cookbook/docs/testing/validators/js/initialiser-js.png "JS Validation")
 ## Python
 The python code was ran through the validation software to ensure it is pep8 compliant and returned the following.
+### Init
+The init.py file returned 3 hints on validation, the hints were as follows:
+1. Put white spaces around the operators. 
+
+        app.register_blueprint(routes, url_prefix="/")
+
+2. Put white spaces around the operators.
+
+        app.register_blueprint(auth, url_prefix="/")
+
+3. Add two empty lines in front of function definition
+
+        @login_manager.user_loader
+
+        def load_user(id):
+        
+            return User.query.get(int(id))
+
+The whitespace hints refers to the slash for the url prefix
+
+The line hint is caused by to the decorator above the function
+
+![Auth Validation](/cookbook/docs/testing/validators/python/auth-pep8.png "Auth Validation")
+### Auth
+Auth file produced 6 hints in total for the following code snippets:
+1. Put white spaces around the operators
+2. Add two empty lines in front of function definition
+
+        @auth.route('/login', methods = ['GET', 'POST'])
+
+        def login():
+
+3. Put white spaces around the operators
+4. Add two empty lines in front of function definition
+
+        @auth.route('/logout')
+
+        @login_required
+
+        def logout():
+
+5. Put white spaces around the operators
+6. Add two empty lines in front of function definition
+
+        @auth.route('/signup', methods=['GET', 'POST'])
+
+        def signup():
+
+The whitespace hints refers to the slash before the route e.g "/login"
+
+The line hints are caused due to the decorator above the function
+
+![Auth Validation](/cookbook/docs/testing/validators/python/auth-pep8.png "Auth Validation")
+### Models
+The model evaluation returned 2 lines with hints, both lines returned were in regards to f strings returned by the model.
+
+![Models Validation](/cookbook/docs/testing/validators/python/models-pep8.png "Models Validation")
+### Routes
+The routes function also returned 2 hints on lines regarding the length of statements inside of if statements, see below:
+
+    if checkbox == 'on':
+
+            user_exists.is_admin = True
+
+            print(user_exists.first_name, user_exists.is_admin)
+
+            db.session.commit()
+
+            flash('User is now an admin', category="success")
+
+            return redirect(url_for('routes.admin'))
+
+The second if statements is as follows:
+
+    if admin.is_admin:
+
+            name = f"{admin.first_name} {admin.last_name}"
+
+            current_admin_names.append(name)
+
+            current_admin_names.sort()
+
+![Routes Validation](/cookbook/docs/testing/validators/python/routes-pep8.png "Routes Validation")
 </details>
 <details>
 <summary><b>Technologies Utilized</b></summary>
