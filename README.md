@@ -74,6 +74,9 @@ A feature that can be implemented in the future would be the forgot password for
 - Fill email form
 - Query database for email
 - If it exists, connect to an API to send email and allow the user to change password using the change password function.
+
+### If/Else statement for admins
+The site was built using an if else statement regarding admins and will only display the admin page on the navigation menu if the user does have admin permissions, if a non admin user tries to access this page via the URL they will be returned home and have a message flashed on screen to inform them they are not an administrator
 </details>
 
 <details>
