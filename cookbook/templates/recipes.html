@@ -17,19 +17,20 @@ Your Recipes
 <!-- Display user recipes on site -->
 <div class="row">
   {% for recipe in recipes %}
-    <div class="col s12 m6 l4">
-      <div class="card">
-        <div class="card-content black-text center-align">
-            <span class="card-title"><strong>{{recipe.name}}</strong></span>
-            <strong><p>{{recipe.recipe_time}} Minutes</p>
-        </div>
-        <div class="center-align card-action">
-          <a href="{{ url_for('routes.edit_recipe', recipe_id=recipe.id) }}" class="btn green darken-1 black-text">Edit</a>
-            <!-- Modal Trigger -->
-          <a class="waves-effect waves-light btn modal-trigger red black-text" href="#modal-{{recipe.id}}">Delete</a>
-        </div>
+  <div class="col s12 m6 l4">
+    <div class="card">
+      <div class="card-content black-text center-align">
+        <span class="card-title"><strong>{{recipe.name}}</strong></span>
+        <p>{{recipe.recipe_time}} Minutes</p>
+      </div>
+      <div class="center-align card-action">
+        <a href="{{ url_for('routes.edit_recipe', recipe_id=recipe.id) }}"
+          class="btn green darken-1 black-text">Edit</a>
+        <!-- Modal Trigger -->
+        <a class="waves-effect waves-light btn modal-trigger red black-text" href="#modal-{{recipe.id}}">Delete</a>
       </div>
     </div>
+  </div>
 
   <!-- Modal Structure -->
   <div id="modal-{{recipe.id}}" class="modal">
@@ -38,7 +39,7 @@ Your Recipes
       <a href="{{ url_for('routes.delete_recipe', recipe_id=recipe.id) }}" class="btn red darken-1">Delete</a>
     </div>
   </div>
-    {% endfor %}
-  </div>
+  {% endfor %}
+</div>
 
 {% endblock %}
