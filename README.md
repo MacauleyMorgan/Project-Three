@@ -72,7 +72,7 @@ An error page was designed for a 404 error and allows the user to navigate back 
 ### 500 Error
 An error page was designed for a 500 error and allows the user to navigate back to the home page if logged in using a button on the page, if the user is not logged in it will direct them to the login page
 
-### If/Else statement for admins
+## If/Else statement for admins
 The site was built using an if else statement regarding admins and will only display the admin page on the navigation menu if the user does have admin permissions, if a non admin user tries to access this page via the URL they will be returned home and have a message flashed on screen to inform them they are not an administrator
 
 ## Features left to implement
