@@ -226,33 +226,43 @@ The admin toggle function allows for a user to use the admin access panel to ena
 ## Wave testing
 ### 404
 The 404 page was wave tested and reported the following.
+
 ![Wave testing 404](/cookbook/docs/testing/wave/desktop/wave-404-desktop.png "Wave testing 404")
 ### 500
 The 500 page fed these stats back when wave tested
+
 ![Wave testing 500](/cookbook/docs/testing/wave/desktop/wave-500-desktop.png "Wave testing 500")
 ### Home
 The home page gave the following results when ran through the wave tool
+
 ![Wave testing Home](/cookbook/docs/testing/wave/desktop/wave-home-desktop.png "Wave testing Home")
 ### Admin
 The admin page reported the following results when using the wave tool.
+
 ![Wave testing Admin](/cookbook/docs/testing/wave/desktop/wave-admin-desktop.png "Wave testing Admin")
 ### Account
 The account page was also waved, and returned these results
+
 ![Wave testing Account](/cookbook/docs/testing/wave/desktop/wave-account-desktop.png "Wave testing Account")
 ### Add Recipe
 The add a recipe page returned the following
+
 ![Wave testing Add Recipe](/cookbook/docs/testing/wave/desktop/wave-add-recipe-desktop.png "Wave testing Add Recipe")
 ### Edit Recipe
 The edit recipe page returned these results when waved
+
 ![Wave testing Edit Recipe](/cookbook/docs/testing/wave/desktop/wave-edit-recipe-desktop.png "Wave testing Edit Recipe")
 ### Recipes
 The recipe page was waved and gave the below stats
+
 ![Wave testing Recipes](/cookbook/docs/testing/wave/desktop/wave-recipes-desktop.png "Wave testing Recipes")
 ### Sign up
 The sign-up page also was ran through the tool, here are the results
+
 ![Wave testing Sign up](/cookbook/docs/testing/wave/desktop/wave-signup-desktop.png "Wave testing Sign up")
 ### Login
 The login page returned the following results
+
 ![Wave testing Login](/cookbook/docs/testing/wave/desktop/wave-login-desktop.png "Wave testing Login")
 
 ## Lighthouse Testing
@@ -289,6 +299,73 @@ The login page was also assessed and returned the following, again this page was
 
 ![Lighthouse testing Login](/cookbook/docs/testing/lighthouse/login-lighthouse.png "Lighthouse testing Login")
 ## Functional Testing
+### Base Template
+Functional testing on the navigation menu of the base template was as follows
+
+![Base functional tests](/cookbook/docs/testing/functional/base-tests.png "Base functional tests")
+
+![Base Admin functional tests](/cookbook/docs/testing/functional/base-admin-tests.png "Base Admin functional tests")
+
+### Home
+
+Functional testing of the home template was as follows
+
+![Home functional tests](/cookbook/docs/testing/functional/home-tests.png "Home functional tests")
+
+### 404
+
+The 404 page testing purported the following
+
+![404 functional tests](/cookbook/docs/testing/functional/404-tests.png "404 functional tests")
+
+### 500
+
+The 500 page purports the following
+
+![500 functional tests](/cookbook/docs/testing/functional/500-tests.png "500 functional tests")
+
+### Account
+
+Testing on the account page shows the following
+
+![Account functional tests](/cookbook/docs/testing/functional/account-tests.png "Account functional tests")
+
+### Add Recipe
+
+The testing on the add recipe page shows the following
+
+![Add recipe functional tests](/cookbook/docs/testing/functional/add-recipe-tests.png "Add recipe functional tests")
+
+### Edit Recipe
+
+The testing on the edit recipe page shows the following
+
+![Edit recipe functional tests](/cookbook/docs/testing/functional/edit-recipe-tests.png "Edit recipe functional tests")
+
+### Recipe
+
+The recipe page testing was as follows
+
+![Recipe functional tests](/cookbook/docs/testing/functional/recipe-tests.png "Recipe functional tests")
+
+### Admin
+
+The admin page was also tested for functionality
+
+![Admin functional tests](/cookbook/docs/testing/functional/admin-tests.png "Admin functional tests")
+
+### Login
+
+The login page was tested as follows
+
+![Login functional tests](/cookbook/docs/testing/functional/login-tests.png "Login functional tests")
+
+### Sign Up
+
+The sign up page was tested for the following criteria
+
+![Sign up functional tests](/cookbook/docs/testing/functional/signup-tests.png "Sign up functional tests")
+
 ### Bugs
 
 </details>
