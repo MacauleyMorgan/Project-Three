@@ -24,11 +24,15 @@ As a logged out user, I would like to be able to access the register page to cre
 
 As a logged out user, I would like to be able to sign in and access the site
 
+As a logged out user, I would like feedback on my form submissions and and confirmation of loggin out successfully
+
 ### Logged in admin goals
 
 As an admin, I would like to be able to grant/remove admin access to trusted users on the site
 
 As an admin, I would like to see which users currently have admin privileges on the site for a clear picture of who has access
+
+As a admin, I would like to be able to police the site using my permissions as a way to edit/remove other users recipes if they are used inappropriately on the site.
 </details>
 
 <details>
@@ -40,13 +44,13 @@ The implementation of a global navbar and footer to make a uniform user experien
 ## Pre Login
 The user experience is limited to only 2 pages before logging in, from here they can navigate to the login page or sign up page
 ## Home Page
-On the home page, users can take the opportunity to view both their own created recipes, and also the communities additions to the site, the CRUD functionality on the home page is read only by design to ensure that the recipes of other users are protected and cannot be edited or deleted.
+On the home page, users can take the opportunity to view both their own created recipes, and also the communities additions to the site, the CRUD functionality on the home page is read only by design to ensure that the recipes of other users are protected and cannot be edited or deleted. If a user clicks on view recipe to expand this page, they can see a more in depth view of the recipe they have clicked, and if they are an administrator of the site or the owner of the recipe they will have access to edit or delete on that page.
 ## Account Page
 In the account page the user is presented with a collapsible set of forms offering multiple functionalities
 ### Change Password
-The user can opt to change the password in the database by supplying the app with the old password and the new request to take its place, the user is once again given a modal to confirm and guard against accidental changes.
+The user can opt to change the password in the database by supplying the app with the old password and the new request to take its place, the user is once again given a modal to confirm and guard against accidental changes. The act of supplying the old password is used as a security measure to prevent malicious intent on the site.
 ### Change email
-In the email section of the page the user is presented with the current email address linked to the account for reference, they are given the option to change to a new email via a form and presented with a modal to confirm the selection and submit to the database.
+In the email section of the page the user is presented with the current email address linked to the account for reference, they are given the option to change to a new email via a form and presented with a modal to confirm the selection and submit to the database. Due to the database model requiring each email to be unique, if the user requests an email already in the database it will reject the request and provide feedback to the user on the nature of the rejection.
 ### Delete account
 The user is provided with an option to remove the account from the database after supplying the form with the email associated to their own account, the function queries the email provided with the current session user to prevent and foul play and only allow for the deletion of the logged in account.
 ## Recipes Page
