@@ -6,7 +6,7 @@ from flask_login import login_user, login_required, logout_user, current_user
 
 auth = Blueprint('auth', __name__)
 
-@auth.route('/login', methods=['GET', 'POST'])
+@auth.route('/login', methods = ['GET', 'POST'])
 def login():
     """
     Allows user to login to the site via form
@@ -17,13 +17,12 @@ def login():
         """
         email = request.form.get('email')
         password = request.form.get('password')
-        
         # Check if email exists
-        user = User.query.filter_by(email=email).first()
+        user = User.query.filter_by(email = email).first()
         if user:
             if check_password_hash(user.password, password):
-                flash('Successful log in!', category='success')
-                login_user(user, remember=True)
+                flash('Successful log in!', category = 'success')
+                login_user(user, remember = True)
                 return redirect(url_for('routes.home'))
             else:
                 flash('Incorrect password!', category='error')
@@ -45,7 +44,7 @@ def logout():
 @auth.route('/signup', methods=['GET', 'POST'])
 def signup():
     """
-    Allows user to register into the User db model by providing sinmple information
+    Allows user to register into the User db model
     """
     if request.method == 'POST':
         """
@@ -58,26 +57,38 @@ def signup():
         password1 = request.form.get('password1')
         password2 = request.form.get('password2')
 
-        user_already_exists = User.query.filter_by(email=email).first()
+        user_already_exists = User.query.filter_by(email = email).first()
         if user_already_exists:
-            flash('An account already exists using this email!', category='error')
+            flash(
+                'An account already exists using this email!',
+                category = 'error')
         elif len(first_name) < 2:
-            flash('Your first name must be longer than 1 letter', category='error')
+            flash(
+                'Your first name must be longer than 1 letter',
+                category = 'error')
         elif len(last_name) < 2:
-            flash('Your last name must be longer than 1 letter', category='error')
+            flash(
+                'Your last name must be longer than 1 letter', 
+                category = 'error')
         elif password1 != password2:
-            flash('Passwords do not match!', category='error')
+            flash(
+                'Passwords do not match!', 
+                category = 'error')
         elif len(password1) < 3:
-            flash('Your password should be longer than 3 characters!')
+            flash(
+                'Your password should be longer than 3 characters!',
+                category = 'error')
         else:
             new_user = User(
-                first_name=first_name, 
-                last_name=last_name, 
-                mobile=mobile, 
-                email=email, 
-                password=generate_password_hash(password1, method='sha256'))
+                first_name = first_name, 
+                last_name = last_name, 
+                mobile = mobile, 
+                email = email, 
+                password = generate_password_hash(
+                    password1, method = 'sha256'))
             db.session.add(new_user)
             db.session.commit()
-            flash('Welcome aboard!', category='success')
+            flash('Welcome aboard!', 
+            category = 'success')
             return redirect(url_for('routes.home'))
     return render_template("signup.html")
