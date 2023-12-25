@@ -59,6 +59,10 @@ In the recipes page, the user is able to view all recipe submissions made by the
 Upon clicking the edit button, the user is directed to a prefilled form referencing all of the recipes current values, allowing the user to change whatever is neccessary and resubmit the form back to the database to be updated.
 
 To ensure no accidental deletions of the recipes, a modal has been implemented requiring the user to confirm the attempt before the recipe is removed from the database
+## Add recipe page
+The add recipe page allows a user to submit a recipe of their choice by filling out a simple form regarding the recipe name, time ingredients, steps and provide an image URL for a photograph
+## Edit recipe
+The edit recipe function allows users to click the button to change a mistake in the recipe they have already submitted, the recipe will load into a pre filled form and the user then just makes the necessary changes then submits the form
 ## Admin Features
 On the admin page, an admin can add or remove access to admin features using the user email of the account needing the access using a simple form with a checkbox to add/remove privilege
 
