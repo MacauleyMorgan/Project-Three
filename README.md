@@ -1,5 +1,15 @@
 # Milestone Project Three - Macs Cookbook
 # Contents
+
+IMPORTANT NOTE: This site was coded to allow the user with the ID of 1 admin permissions initially and all other admins can be added after.
+To login to the admin account use the following credentials
+email: admin@test.com
+pwd: test
+
+One user account was also made for deployment with the following credentials
+email: user@test.test
+pwd: test
+
 <details>
 <summary><b>User Stories<b></summary>
 

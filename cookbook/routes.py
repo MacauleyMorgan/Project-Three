@@ -210,9 +210,6 @@ def edit_recipe(recipe_id):
             elif len(request.form.get('recipe-image')) < 1:
                 flash('Provide a valid image link',
                 category = 'error')
-            elif len(request.form.get('recipe-time')) <= 1:
-                flash('Provide a valid time',
-                category = 'error')
             elif len(request.form.get('recipe-ingredients')) < 3:
                 flash('Provide ingredients for recipe',
                 category = 'error')
