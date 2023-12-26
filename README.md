@@ -1,6 +1,8 @@
 # Milestone Project Three - Macs Cookbook
 # Contents
 
+![Site Mockup](/cookbook/docs/cimp3-mockup.png "Site Mockup")
+
 IMPORTANT NOTE: This site was coded to allow the user with the ID of 1 admin permissions initially and all other admins can be added after.
 To login to the admin account use the following credentials
 email: admin@test.com
@@ -9,6 +11,8 @@ pwd: test
 One user account was also made for deployment with the following credentials
 email: user@test.test
 pwd: test
+
+[**__link to deployed site here__**](https://cimp3-cookbook-147e33c80e2f.herokuapp.com//)
 
 <details>
 <summary><b>User Stories<b></summary>
