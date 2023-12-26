@@ -558,6 +558,24 @@ The site was created using the template provided by code institute regarding mil
 - A clone of the project will be created locally on your machine.
 
 ## Deployment to Heroku
+To deploy the project to Heroku:
+1. To get all dependencies of the app, first you need to run the freeze command by typing into the CLI
+- pip3 freeze --local > requirements.txt
+2. To user Heroku the project will also need a Procfile, named with a capital P and in the content of the file should be the following line
+- web: python3 run.py
+3. Push the newly created files to github for use
+4. Login to heroku and create a new app by providing a name and choosing the relevant region.
+5. Click the connect tab and select github, find the repository you wish to use for the heroku app.
+6. On the settings tab reveal the config vars and add the additional variables 
+
+| Key | Value |
+| :---: | :---: |
+| DATABASE_URL | postgresql |
+| IP | 0.0.0.0 |
+| PORT | 5000 |
+| SECRET_KEY | mysecretkey |
+
+Actual env variables not disclosed.
 
 </details>
 
