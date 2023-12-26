@@ -86,6 +86,9 @@ A feature that can be implemented in the future would be the forgot password for
 - Fill email form
 - Query database for email
 - If it exists, connect to an API to send email and allow the user to change password using the change password function.
+
+### Sort recipes on recipe page
+Another feature to be implemented on the site is to sort the recipes owned by the user alphabetically. This functionality could be implemented by changing the return function in the models file from an fstring and filtering by the name of the recipe before displaying in the recipes page.
 </details>
 
 <details>
