@@ -11,7 +11,8 @@ routes = Blueprint('routes', __name__)
 @login_required
 def admin():
     """
-    Function to display admin page, first user to sign up will automatically become an admin.
+    Function to display admin page
+    first user to sign up will automatically become an admin.
     """
     # Checks if user is first user (Change to admin boolean)
     if current_user.id == 1 and current_user.is_admin == False:
@@ -28,24 +29,27 @@ def admin():
                 name = f"{admin.first_name} {admin.last_name}"
                 current_admin_names.append(name)
                 current_admin_names.sort()
-        return render_template("admin.html", current_admin_names=current_admin_names)
+        return render_template(
+            "admin.html", current_admin_names=current_admin_names)
     else:
-        flash('You are not an admin', category = 'error')
+        flash('You are not an admin', category='error')
         return render_template("home.html")
 
 
-@routes.route('toggle_admin', methods=['GET','POST'])
+@routes.route('toggle_admin', methods=['GET', 'POST'])
 @login_required
 def toggle_admin():
     """
-    Linked to form to enable/diables admin permissions on admin page, protects user with ID of 1 from losing permissions
-    """ 
+    Linked to form to enable/diables admin permissions on admin page
+    protects user with ID of 1 from losing permissions
+    """
     if request.method == 'POST':
         email = request.form.get('user-email')
         checkbox = request.form.get('checkbox')
         if len(email) < 3:
-            flash('Please enter a valid email',
-            category = 'error')
+            flash(
+                'Please enter a valid email',
+                category='error')
         else:
             # Check if email is valid
             user_exists = User.query.filter_by(email=email).first()
@@ -66,8 +70,9 @@ def toggle_admin():
                     flash('User admin rights removed', category='info')
                     return redirect(url_for('routes.admin'))
             elif user_exists.id == 1:
-                flash('You can\'t remove owners permissions!',
-                category = 'error')
+                flash(
+                    'You can\'t remove owners permissions!',
+                    category='error')
                 redirect(url_for('routes.admin'))
             else:
                 # User does not exist in database
@@ -90,7 +95,8 @@ def home():
 @login_required
 def recipes():
     """
-    Displays recipes page on site, loads the recipes owned by the current user ID for modification/deletion
+    Displays recipes page on site
+    loads the recipes owned by the current user ID for modification/deletion
     """
     recipes = list(Recipes.query.order_by(Recipes.user_id).all())
     my_recipes = list()
@@ -118,7 +124,8 @@ def account():
 @login_required
 def email_change(current_user_id):
     """
-    Function to change email assocoated with account, checks if email is already in use before assigning it to the user
+    Function to change email assocoated with account
+    checks if email is already in use before assigning it to the user
     """
     user = User.query.get_or_404(current_user_id)
     if request.method == 'POST':
@@ -139,8 +146,10 @@ def email_change(current_user_id):
 @login_required
 def password_change(current_user_id):
     """
-    Allows usere to change password if they can confirm the previous password they have used, 
-    If the current password matches the one in database, it will change it to the new password on submission
+    Allows usere to change password if they can
+    confirm the previous password they have used,
+    If the current password matches the one in database
+    it will change it to the new password on submission
     """
     if request.method == 'POST':
         user = User.query.get_or_404(current_user_id)
@@ -148,13 +157,17 @@ def password_change(current_user_id):
         requested_password = request.form.get('new-password')
         if check_password_hash(user.password, old_password):
             if len(requested_password) > 3:
-                new_password = generate_password_hash(requested_password, method='sha256')
+                new_password = generate_password_hash(
+                    requested_password,
+                    method='sha256')
                 user.password = new_password
                 db.session.commit()
                 flash('Password successfully changed!', category='success')
                 return redirect(url_for('routes.account'))
             else:
-                flash('Password must be greater than 3 characters', category='error')
+                flash(
+                    'Password must be greater than 3 characters',
+                    category='error')
                 return redirect(url_for('routes.account'))
         else:
             flash('Sorry, passwords do not match!', category='error')
@@ -164,7 +177,7 @@ def password_change(current_user_id):
 
 # Function to delete recipes
 @routes.route('delete_user/<int:current_user_id>', methods=['GET', 'POST'])
-def delete_user(current_user_id): 
+def delete_user(current_user_id):
     """
     Takes user ID of current user
     Checks email written in form is equal to db storage as verification
@@ -205,22 +218,28 @@ def edit_recipe(recipe_id):
             recipe.recipe_ingredients = request.form.get('recipe-ingredients')
             recipe.recipe_steps = request.form.get('recipe-steps')
             if len(request.form.get('recipe-name')) < 3:
-                flash('Recipe name not long enough!',
-                category = 'error')
+                flash(
+                    'Recipe name not long enough!',
+                    category='error')
             elif len(request.form.get('recipe-image')) < 1:
-                flash('Provide a valid image link',
-                category = 'error')
+                flash(
+                    'Provide a valid image link',
+                    category='error')
             elif len(request.form.get('recipe-ingredients')) < 3:
-                flash('Provide ingredients for recipe',
-                category = 'error')
+                flash(
+                    'Provide ingredients for recipe',
+                    category='error')
             elif len(request.form.get('recipe-steps')) < 3:
-                flash('Provide recipe steps',
-                category = 'error')
+                flash(
+                    'Provide recipe steps',
+                    category='error')
             else:
                 db.session.commit()
             return redirect(url_for('routes.recipes'))
     else:
-        flash('You do not have permissions to remove this recipe', category='error')
+        flash(
+            'You do not have permissions to remove this recipe',
+            category='error')
         return redirect(url_for('routes.home'))
     return render_template("edit_recipe.html", recipe=recipe)
 
@@ -246,13 +265,13 @@ def add_recipe():
             flash('Recipe image link not provided', category='error')
         elif len(recipe_ingredients) < 1:
             flash('Recipe ingredients not provided', category='error')
-        else: 
+        else:
             recipe = Recipes(
-                name=recipe_name, 
-                recipe_time=recipe_time, 
-                recipe_ingredients=recipe_ingredients, 
-                recipe_image=recipe_image, 
-                recipe_steps=recipe_steps, 
+                name=recipe_name,
+                recipe_time=recipe_time,
+                recipe_ingredients=recipe_ingredients,
+                recipe_image=recipe_image,
+                recipe_steps=recipe_steps,
                 user_id=current_user.id)
             db.session.add(recipe)
             db.session.commit()
@@ -288,12 +307,16 @@ def expand_recipe(recipe_id):
     recipe_id = Recipes.query.get_or_404(recipe_id)
     recipe_owner = User.query.get_or_404(recipe_id.user_id)
     print(recipe_owner)
-    return render_template('expand_recipe.html', recipe_id=recipe_id, recipe_owner=recipe_owner)
+    return render_template(
+        'expand_recipe.html',
+        recipe_id=recipe_id,
+        recipe_owner=recipe_owner)
 
 
 """
 Error handling section
 """
+
 
 @app.errorhandler(500)
 def page_not_found(e):
