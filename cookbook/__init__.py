@@ -2,6 +2,7 @@ import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
+from cookbook.models import User
 
 if os.path.exists("env.py"):
     import env  # noqa
@@ -19,7 +20,6 @@ else:
 
 db = SQLAlchemy(app)
 
-from cookbook.models import User
 from cookbook.routes import routes  # noqa
 from cookbook.auth import auth  # noqa
 
