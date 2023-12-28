@@ -431,56 +431,11 @@ The JavaScript/JQuery initialisation code was assessed using JSLint and returned
 ## Python
 The python code was ran through the validation software to ensure it is pep8 compliant and returned the following.
 ### Init
-The init.py file returned 3 hints on validation, the hints were as follows:
-1. Put white spaces around the operators. 
-
-        app.register_blueprint(routes, url_prefix="/")
-
-2. Put white spaces around the operators.
-
-        app.register_blueprint(auth, url_prefix="/")
-
-3. Add two empty lines in front of function definition
-
-        @login_manager.user_loader
-
-        def load_user(id):
-        
-            return User.query.get(int(id))
-
-The whitespace hints refers to the slash for the url prefix
-
-The line hint is caused by to the decorator above the function
+The init file returned 0 linting errors.
 
 ![Auth Validation](/cookbook/docs/testing/validators/python/auth-pep8.png "Auth Validation")
 ### Auth
-Auth file produced 6 hints in total for the following code snippets:
-1. Put white spaces around the operators
-2. Add two empty lines in front of function definition
-
-        @auth.route('/login', methods = ['GET', 'POST'])
-
-        def login():
-
-3. Put white spaces around the operators
-4. Add two empty lines in front of function definition
-
-        @auth.route('/logout')
-
-        @login_required
-
-        def logout():
-
-5. Put white spaces around the operators
-6. Add two empty lines in front of function definition
-
-        @auth.route('/signup', methods=['GET', 'POST'])
-
-        def signup():
-
-The whitespace hints refers to the slash before the route e.g "/login"
-
-The line hints are caused due to the decorator above the function
+The Auth file returned 0 errors when linted.
 
 ![Auth Validation](/cookbook/docs/testing/validators/python/auth-pep8.png "Auth Validation")
 ### Models
@@ -488,29 +443,7 @@ The model evaluation returned 2 lines with hints, both lines returned were in re
 
 ![Models Validation](/cookbook/docs/testing/validators/python/models-pep8.png "Models Validation")
 ### Routes
-The routes function also returned 2 hints on lines regarding the length of statements inside of if statements, see below:
-
-    if checkbox == 'on':
-
-            user_exists.is_admin = True
-
-            print(user_exists.first_name, user_exists.is_admin)
-
-            db.session.commit()
-
-            flash('User is now an admin', category="success")
-
-            return redirect(url_for('routes.admin'))
-
-The second if statements is as follows:
-
-    if admin.is_admin:
-
-            name = f"{admin.first_name} {admin.last_name}"
-
-            current_admin_names.append(name)
-
-            current_admin_names.sort()
+Validation testing in the routes file returned errors based on the comparison operators to boolean values. When running this through the linter with a single equals it passed validation but then returned errors in VS code.
 
 ![Routes Validation](/cookbook/docs/testing/validators/python/routes-pep8.png "Routes Validation")
 </details>
