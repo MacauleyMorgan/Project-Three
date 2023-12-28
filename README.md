@@ -468,6 +468,10 @@ Jinja Templating was used alongside Flask modules in order to create Python impl
 ## External utility
 ### Font Awesome
 Font Awesome was used to generate icons for the website and to style the links in a more reader friendly fashion
+### Heroku
+Heroku was used to deploy the app when ready and allowed for it to become a live site
+### ElephantSQL
+Elephant SQL was used to connect the database to the app for functionality at deployment
 
 </details>
 <details>
