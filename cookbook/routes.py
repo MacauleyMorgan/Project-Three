@@ -289,7 +289,7 @@ def delete_recipe(recipe_id):
     Deletes recipe clicked on by user from the recipes page
     """
     find_recipe = Recipes.query.get_or_404(recipe_id)
-    if current_user.is_admin == True or current_user.id == find_recipe.owner:
+    if current_user.is_admin == True or current_user.id == find_recipe.user_id:
         recipe = Recipes.query.get_or_404(recipe_id)
         db.session.delete(recipe)
         db.session.commit()
