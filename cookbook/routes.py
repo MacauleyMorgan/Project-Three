@@ -18,7 +18,6 @@ def admin():
     if current_user.id == 1 and current_user.is_admin == False:
         current_user.is_admin = True
         db.session.commit()
-        print(current_user.is_admin)
         return redirect(url_for('routes.admin'))
     elif current_user.is_admin == True:
         # If admin = True
@@ -58,13 +57,11 @@ def toggle_admin():
                 if checkbox == 'on':
                     # User exists in database and access is given
                     user_exists.is_admin = True
-                    print(user_exists.first_name, user_exists.is_admin)
                     db.session.commit()
                     flash('User is now an admin', category="success")
                     return redirect(url_for('routes.admin'))
                 elif checkbox == None:
                     # User exists in database and access is removed
-                    print('User exists and would remove access')
                     user_exists.is_admin = False
                     db.session.commit()
                     flash('User admin rights removed', category='info')
@@ -294,7 +291,9 @@ def delete_recipe(recipe_id):
         db.session.delete(recipe)
         db.session.commit()
     else:
-        print('You can not delete this')
+        flash(
+            'You can not delete this',
+            category='error')
     return redirect(url_for('routes.recipes'))
 
 
@@ -306,7 +305,6 @@ def expand_recipe(recipe_id):
     """
     recipe_id = Recipes.query.get_or_404(recipe_id)
     recipe_owner = User.query.get_or_404(recipe_id.user_id)
-    print(recipe_owner)
     return render_template(
         'expand_recipe.html',
         recipe_id=recipe_id,
