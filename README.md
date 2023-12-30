@@ -421,75 +421,92 @@ The login page was also assessed and returned the following, again this page was
  
 ## Functional Testing
 
-### Base Template
-
-Functional testing on the navigation menu of the base template was as follows
-
-![Base functional tests](/cookbook/docs/testing/functional/base-tests.png "Base functional tests")
-
-![Base Admin functional tests](/cookbook/docs/testing/functional/base-admin-tests.png "Base Admin functional tests")
-
-### Home
-
-Functional testing of the home template was as follows
-
-![Home functional tests](/cookbook/docs/testing/functional/home-tests.png "Home functional tests")
-
-### 404
-
-The 404 page testing purported the following
-
-![404 functional tests](/cookbook/docs/testing/functional/404-tests.png "404 functional tests")
-
-### 500
-
-The 500 page purports the following
-
-![500 functional tests](/cookbook/docs/testing/functional/500-tests.png "500 functional tests")
-
-### Account
-
-Testing on the account page shows the following
-
-![Account functional tests](/cookbook/docs/testing/functional/account-tests.png "Account functional tests")
-
-### Add Recipe
-
-The testing on the add recipe page shows the following
-
-![Add recipe functional tests](/cookbook/docs/testing/functional/add-recipe-tests.png "Add recipe functional tests")
-
-### Edit Recipe
-
-The testing on the edit recipe page shows the following
-
-![Edit recipe functional tests](/cookbook/docs/testing/functional/edit-recipe-tests.png "Edit recipe functional tests")
-
-### Recipe
-
-The recipe page testing was as follows
-
-![Recipe functional tests](/cookbook/docs/testing/functional/recipe-tests.png "Recipe functional tests")
-
-### Admin
-
-The admin page was also tested for functionality
-
-![Admin functional tests](/cookbook/docs/testing/functional/admin-tests.png "Admin functional tests")
-
-### Login
-
-The login page was tested as follows
-
-![Login functional tests](/cookbook/docs/testing/functional/login-tests.png "Login functional tests")
-
-### Sign Up
-
-The sign up page was tested for the following criteria
-
-![Sign up functional tests](/cookbook/docs/testing/functional/signup-tests.png "Sign up functional tests")
-
-### Bugs
+| Base (Admin)                               |                                                                                 |                                                                                                     |        |
+| ------------------------------------------ | ------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | ------ |
+| Test                                       | Expected                                                                        | Outcome                                                                                             | Result |
+| Navigate to home.html (navbar)             | Load home page                                                                  | Loads home                                                                                          | Pass   |
+| Navigate to add-recipe.html (navbar)       | load add recipe page                                                            | loads add recipe                                                                                    | Pass   |
+| Navigate to recipes.html (navbar)          | load your recipe page                                                           | loads recipes                                                                                       | Pass   |
+| Navigate to account.html (navbar)          | load account page                                                               | loads account                                                                                       | Pass   |
+| Navigate to admin.html (navbar)            | load admin oage                                                                 | loads admin page                                                                                    | Pass   |
+| Click logout (navbar)                      | logout user                                                                     | logs out user                                                                                       | Pass   |
+|                                            |                                                                                 |                                                                                                     |        |
+| Base (Non Admin)                           |                                                                                 |                                                                                                     |        |
+| Test                                       | Expected                                                                        | Outcome                                                                                             | Result |
+| Navigate to home.html (navbar)             | Load home page                                                                  | Loads home                                                                                          | Pass   |
+| Navigate to add-recipe.html (navbar)       | load add recipe page                                                            | loads add recipe                                                                                    | Pass   |
+| Navigate to recipes.html (navbar)          | load your recipe page                                                           | loads recipes                                                                                       | Pass   |
+| Navigate to account.html (navbar)          | load account page                                                               | loads account                                                                                       | Pass   |
+| Navigate to admin.html (navbar)            | Rejected with feedback                                                          | loads admin page                                                                                    | Pass   |
+| Click logout (navbar)                      | logout user                                                                     | logs out user                                                                                       | Pass   |
+|                                            |                                                                                 |                                                                                                     |        |
+| Login                                      |                                                                                 |                                                                                                     |        |
+| Test                                       | Expected                                                                        | Outcome                                                                                             | Result |
+| Enter valid email and password and submit  | Log in user                                                                     | User logged in                                                                                      | Pass   |
+| Enter email that doesn't exist in db       | Feedback to inform email doesn't exist in db                                    | Flash (email is not in database)                                                                    | Pass   |
+| Enter existing email, wrong password       | Feedback to inform incorrect password                                           | Flash (incorrect password)                                                                          | Pass   |
+| Navigate to signup (navbar)                | Load sign up                                                                    | Loaded sign up page                                                                                 | Pass   |
+|                                            |                                                                                 |                                                                                                     |        |
+| Sign Up                                    |                                                                                 |                                                                                                     |        |
+| Test                                       | Expected                                                                        | Outcome                                                                                             | Result |
+| Navigate to login (navbar)                 | Load login                                                                      | Loaded login                                                                                        | Pass   |
+| Sign up with non-existing email            | Successfully register, redirect to login page                                   | Flash(Welcome aboard!) Direct to login page                                                         | Pass   |
+| Sign up with email already existing        | Flash (email already exists)                                                    | Flash(An account already exists using this email)                                                   | Pass   |
+| Submit blank form                          | Validator prompts form to be filled properly                                    | Validator prompts user until all fields are filled                                                  | Pass   |
+|                                            |                                                                                 |                                                                                                     |        |
+| Home                                       |                                                                                 |                                                                                                     |        |
+| Test                                       | Expected                                                                        | Outcome                                                                                             | Result |
+| Click view on a recipe                     | Redirect to expand recipe page using recipe id                                  | Succesfully redirected to view recipe                                                               | Pass   |
+|                                            |                                                                                 |                                                                                                     |        |
+| Add Recipe                                 |                                                                                 |                                                                                                     |        |
+| Test                                       | Expected                                                                        | Outcome                                                                                             | Result |
+| Fill form out correctly and submit         | Recipe uploaded and redirect to user recipe page                                | Recipe submitted, redirected successfully and recipe rendered on recipe page                        | Pass   |
+| Miss form sections and submit              | Validator prompt to fill required fields                                        | Validation order succesful, prompts on recipe name length, link not provided and ingredients length | Pass   |
+|                                            |                                                                                 |                                                                                                     |        |
+| Expand Recipe Admin                        |                                                                                 |                                                                                                     |        |
+| Test                                       | Expected                                                                        | Outcome                                                                                             | Result |
+| Loads recipe succesfully                   | Loads recipe to view                                                            | Loaded recipe succesfully                                                                           | Pass   |
+| Edit button redirects to edit page         | Loads edit recipe template prefilled with recipe                                | Loads recipe for adjustment successfully                                                            | Pass   |
+| Delete button deletes recipe               | Deletes recipe from database                                                    | Deletes recipe succesfully                                                                          | Pass   |
+|                                            |                                                                                 |                                                                                                     |        |
+| Expand Recipe Non Admin                    |                                                                                 |                                                                                                     |        |
+| Test                                       | Expected                                                                        | Outcome                                                                                             | Result |
+| Loads recipe succesfully                   | Loads recipe to view                                                            | Loaded recipe succesfully                                                                           | Pass   |
+|                                            |                                                                                 |                                                                                                     |        |
+| Edit Recipe                                |                                                                                 |                                                                                                     |        |
+| Test                                       | Expected                                                                        | Outcome                                                                                             | Result |
+| Submit recipe fully adjusted               | Recipe is overwritten by input fields correctly and redisplayed on recipes page | Successfully edited recipe                                                                          | Pass   |
+| Leave a field blank and submit recipe      | Flash message regarding failure reason, redirect to recipes page                | Flashed message as expected                                                                         | Pass   |
+|                                            |                                                                                 |                                                                                                     |        |
+| Recipe                                     |                                                                                 |                                                                                                     |        |
+| Test                                       | Expected                                                                        | Outcome                                                                                             | Result |
+| Displays user recipes on page              | Shows all of user recipes                                                       | Shows user recipes correctly                                                                        | Pass   |
+| Edit button redirects to edit recipe page  | Allows user to edit recipe                                                      | Redirects to edit recipe page                                                                       | Pass   |
+| Delete button deletes recipe from database | Deletes recipe from database                                                    | Deletes recipe from database                                                                        | Pass   |
+|                                            |                                                                                 |                                                                                                     |        |
+| Admin                                      |                                                                                 |                                                                                                     |        |
+| Test                                       | Expected                                                                        | Outcome                                                                                             | Result |
+| Add permissions to user                    | Added permissions, user added to admin list on page                             | User added                                                                                          | Pass   |
+| Remove permissions from user               | Removed permissions, user removed from list on page                             | User removed                                                                                        | Pass   |
+| Enter empty form                           | Form prompts enter an email                                                     | Flash(Please enter valid email)                                                                     | Pass   |
+| Try to remove permissions from ID 1        | Flash (cannot remove owner permissions)                                         | Flash(Cannot strip owner permissions)                                                               | Pass   |
+| Enter email not in database                | Flash(User does not exist!)                                                     | Flash(User does not exist!)                                                                         | Pass   |
+|                                            |                                                                                 |                                                                                                     |        |
+| Account                                    |                                                                                 |                                                                                                     |        |
+| Test                                       | Expected                                                                        | Outcome                                                                                             | Result |
+| Change email to unique email               | Sets new email                                                                  | New email is set and loaded onto existing email section of page as confirmation                     | Pass   |
+| Change email to non-unique email           | Flash(Email in use)                                                             | Flashes email in use                                                                                | Pass   |
+| Enter empty form                           | Form validation stops user                                                      | Form promt to add email to form                                                                     | Pass   |
+|                                            |                                                                                 |                                                                                                     |        |
+| 404 Page                                   |                                                                                 |                                                                                                     |        |
+| Test                                       | Expected                                                                        | Outcome                                                                                             | Result |
+| If logged in, click button to home page    | Navigate to home page                                                           | Loaded home page                                                                                    | Pass   |
+| If logged out, click to login page         | Navigate to login page                                                          | Load login page                                                                                     | Pass   |
+|                                            |                                                                                 |                                                                                                     |        |
+| 500 Page                                   |                                                                                 |                                                                                                     |        |
+| Test                                       | Expected                                                                        | Outcome                                                                                             | Result |
+| If logged in, click button to home page    | Navigate to home page                                                           | Loaded home page                                                                                    | Pass   |
+| If logged out, click to login page         | Navigate to login page                                                          | Load login page                                                                                     | Pass   |
 
 </details>
 <details>
