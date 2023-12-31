@@ -3,14 +3,6 @@
 
 ![Site Mockup](/cookbook/docs/cimp3-mockup.png "Site Mockup")
 
-IMPORTANT NOTE: This site was coded to allow the user with the ID of 1 admin permissions initially and all other admins can be added after.
-To login to the admin account use the following credentials
-email: admin@test.com
-pwd: test
-
-One user account was also made for deployment with the following credentials
-email: user@test.test
-pwd: test
 
 [**__link to deployed site here__**](https://cimp3-cookbook-147e33c80e2f.herokuapp.com//)
 
@@ -41,7 +33,7 @@ As a logged out user, I would like to be able to access the register page to cre
 
 As a logged out user, I would like to be able to sign in and access the site
 
-As a logged out user, I would like feedback on my form submissions and and confirmation of loggin out successfully
+As a logged out user, I would like feedback on my form submissions and and confirmation of logging out successfully
 
 ### Logged in admin goals
 
@@ -88,7 +80,7 @@ The user is provided with an option to remove the account from the database afte
 
 In the recipes page, the user is able to view all recipe submissions made by themselves with the option to update the recipes and also to delete them.
 
-Upon clicking the edit button, the user is directed to a prefilled form referencing all of the recipes current values, allowing the user to change whatever is neccessary and resubmit the form back to the database to be updated.
+Upon clicking the edit button, the user is directed to a prefilled form referencing all of the recipes current values, allowing the user to change whatever is necessary and resubmit the form back to the database to be updated.
 
 To ensure no accidental deletions of the recipes, a modal has been implemented requiring the user to confirm the attempt before the recipe is removed from the database
 
@@ -104,7 +96,7 @@ The edit recipe function allows users to click the button to change a mistake in
 
 On the admin page, an admin can add or remove access to admin features using the user email of the account needing the access using a simple form with a checkbox to add/remove privilege
 
-The admin page also allows admins to view other admins on the site for clarity to protect against unwanted or unneccesary access of the privileges.
+The admin page also allows admins to view other admins on the site for clarity to protect against unwanted or unnecessary access of the privileges.
 
 Additionally, having admin permission also lets users edit and delete recipes on the home page that they do not own to ensure compliance with site etiquette.
 
@@ -173,7 +165,7 @@ Admins can view other admin users via the admin page
 User can update recipes that is associated with their account
 - As a logged in user, I would like to be able to adjust and delete the recipes I have submitted on the website at my own leisure
 
-The user can change email addresses for the account if neccessary in the database
+The user can change email addresses for the account if necessary in the database
 - As a logged in user, I would like the flexibility to change my email and password when I need t
 
 The user can update the account password via the account page
@@ -445,7 +437,7 @@ The login page was also assessed and returned the following, again this page was
 | Enter valid email and password and submit  | Log in user                                                                     | User logged in                                                                                      | Pass   |
 | Enter email that doesn't exist in db       | Feedback to inform email doesn't exist in db                                    | Flash (email is not in database)                                                                    | Pass   |
 | Enter existing email, wrong password       | Feedback to inform incorrect password                                           | Flash (incorrect password)                                                                          | Pass   |
-| Navigate to signup (navbar)                | Load sign up                                                                    | Loaded sign up page                                                                                 | Pass   |
+| Navigate to sign up (navbar)                | Load sign up                                                                    | Loaded sign up page                                                                                 | Pass   |
 |                                            |                                                                                 |                                                                                                     |        |
 | Sign Up                                    |                                                                                 |                                                                                                     |        |
 | Test                                       | Expected                                                                        | Outcome                                                                                             | Result |
@@ -461,17 +453,17 @@ The login page was also assessed and returned the following, again this page was
 | Add Recipe                                 |                                                                                 |                                                                                                     |        |
 | Test                                       | Expected                                                                        | Outcome                                                                                             | Result |
 | Fill form out correctly and submit         | Recipe uploaded and redirect to user recipe page                                | Recipe submitted, redirected successfully and recipe rendered on recipe page                        | Pass   |
-| Miss form sections and submit              | Validator prompt to fill required fields                                        | Validation order succesful, prompts on recipe name length, link not provided and ingredients length | Pass   |
+| Miss form sections and submit              | Validator prompt to fill required fields                                        | Validation order successful, prompts on recipe name length, link not provided and ingredients length | Pass   |
 |                                            |                                                                                 |                                                                                                     |        |
 | Expand Recipe Admin                        |                                                                                 |                                                                                                     |        |
 | Test                                       | Expected                                                                        | Outcome                                                                                             | Result |
-| Loads recipe succesfully                   | Loads recipe to view                                                            | Loaded recipe succesfully                                                                           | Pass   |
+| Loads recipe successfully                   | Loads recipe to view                                                            | Loaded recipe successfully                                                                           | Pass   |
 | Edit button redirects to edit page         | Loads edit recipe template prefilled with recipe                                | Loads recipe for adjustment successfully                                                            | Pass   |
-| Delete button deletes recipe               | Deletes recipe from database                                                    | Deletes recipe succesfully                                                                          | Pass   |
+| Delete button deletes recipe               | Deletes recipe from database                                                    | Deletes recipe successfully                                                                          | Pass   |
 |                                            |                                                                                 |                                                                                                     |        |
 | Expand Recipe Non Admin                    |                                                                                 |                                                                                                     |        |
 | Test                                       | Expected                                                                        | Outcome                                                                                             | Result |
-| Loads recipe succesfully                   | Loads recipe to view                                                            | Loaded recipe succesfully                                                                           | Pass   |
+| Loads recipe successfully                   | Loads recipe to view                                                            | Loaded recipe successfully                                                                           | Pass   |
 |                                            |                                                                                 |                                                                                                     |        |
 | Edit Recipe                                |                                                                                 |                                                                                                     |        |
 | Test                                       | Expected                                                                        | Outcome                                                                                             | Result |
@@ -540,13 +532,13 @@ The html parts of the website have been ran through validation software to ensur
 
 ## CSS
 
-The stylesheets were assessed using jigsaw to analyse CSS compliance with standard practises and returned the following.
+The stylesheets were assessed using jigsaw to analyze CSS compliance with standard practices and returned the following.
 
 ![CSS Validation](/cookbook/docs/testing/validators/css/styles-css.png "CSS Validation")
 
 ## JavaScript/jQuery
 
-The JavaScript/JQuery initialisation code was assessed using JSLint and returned the following.
+The JavaScript/JQuery initialization code was assessed using JSLint and returned the following.
 ![JS Validation](/cookbook/docs/testing/validators/js/initialiser-js.png "JS Validation")
 
 ## Python
@@ -587,7 +579,7 @@ HTML5 Was used to create the front end skeleton of the website, semantic HTML in
 
 ## CSS
 
-Custom CSS styles were utilised to resize and reposition some elements on the site in order to maximise the user experience.
+Custom CSS styles were utilised to resize and reposition some elements on the site in order to maximize the user experience.
 
 ### Materialize Framework
 
@@ -603,7 +595,7 @@ The Materialize Framework was also used in the form of JQuery to initialize some
 
 ### Flask Framework
 
-The Flask Framework was used to create and initialise the app in order to run the server and to navigate through the site using routing and login functionality.
+The Flask Framework was used to create and initialize the app in order to run the server and to navigate through the site using routing and login functionality.
 
 ### Jinja Templating
 
@@ -630,16 +622,6 @@ Elephant SQL was used to connect the database to the app for functionality at de
 ## GitHub version control
 
 The site was created using the template provided by code institute regarding milestone project 3. The code was written in gitpod and pushed using the gitpod source control option on the side bar of the application.
-
-### Github Pages
-
-- Adding it to Github Pages
-- To create the live link for the site, github pages was used in the following way.
-- Navigate to settings
-- Click on the Pages tab
-- Select the branch "main"
-- This will generate the link to the live site when created.
-- Click Save
 
 ### Cloning
 
