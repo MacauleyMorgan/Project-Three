@@ -546,9 +546,9 @@ The JavaScript/JQuery initialization code was assessed using JSLint and returned
 The python code was ran through the validation software to ensure it is pep8 compliant and returned the following.
 
 ### Init
-The init file returned 0 linting errors.
+The init file returned 1 linting error regarding the module being imported that is not at the top of file, when this error is corrected it creates a circular import bug on the site.
 
-![Auth Validation](/cookbook/docs/testing/validators/python/auth-pep8.png "Auth Validation")
+![Init Validation](/cookbook/docs/testing/validators/python/init-pep8.png "Init Validation")
 
 ### Auth
 
