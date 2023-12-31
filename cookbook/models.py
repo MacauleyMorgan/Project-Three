@@ -24,7 +24,10 @@ class User(db.Model, UserMixin):
 
     def __repr__(self):
         # represents itself as a string
-        return f"ID: {self.id} Name:{self.first_name} {self.last_name} Email:{self.email}"
+        return (
+            f"ID: {self.id} Name:{self.first_name}" +
+            "{self.last_name} Email:{self.email}"
+            )
 
 
 class Recipes(db.Model):
@@ -49,4 +52,8 @@ class Recipes(db.Model):
 
     def __repr__(self):
         # represents itself as a string
-        return f"ID: {self.id} Name:{self.name} Time:{self.recipe_time} Ingredients:{self.recipe_ingredients} Steps:{self.recipe_steps} Owner: {self.user_id}"
+        return (
+            f"ID: {self.id} Name:{self.name}" +
+            "Time:{self.recipe_time}" +
+            "Ingredients:{self.recipe_ingredients" +
+            "Steps:{self.recipe_steps} Owner: {self.user_id}")

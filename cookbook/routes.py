@@ -15,13 +15,13 @@ def admin():
     first user to sign up will automatically become an admin.
     """
     # Checks if user is first user (Change to admin boolean)
-    if current_user.id == 1 and current_user.is_admin == False:
+    if current_user.id == 1 and current_user.is_admin is False:
         current_user.is_admin = True
         db.session.commit()
         return redirect(url_for('routes.admin'))
-    elif current_user.is_admin == True:
+    elif current_user.is_admin is True:
         # If admin = True
-        current_admins = list(User.query.order_by(User.is_admin == True).all())
+        current_admins = list(User.query.order_by(User.is_admin is True).all())
         current_admin_names = []
         for admin in current_admins:
             if admin.is_admin:
@@ -60,7 +60,7 @@ def toggle_admin():
                     db.session.commit()
                     flash('User is now an admin', category="success")
                     return redirect(url_for('routes.admin'))
-                elif checkbox == None:
+                elif checkbox is None:
                     # User exists in database and access is removed
                     user_exists.is_admin = False
                     db.session.commit()
@@ -206,7 +206,7 @@ def edit_recipe(recipe_id):
     On submission, overwrites db with form data supplied for recipe
     """
     find_recipe = Recipes.query.get_or_404(recipe_id)
-    if current_user.is_admin == True or current_user.id == find_recipe.user_id:
+    if current_user.is_admin is True or current_user.id == find_recipe.user_id:
         recipe = Recipes.query.get_or_404(recipe_id)
         if request.method == 'POST':
             recipe.name = request.form.get('recipe-name')
@@ -286,7 +286,7 @@ def delete_recipe(recipe_id):
     Deletes recipe clicked on by user from the recipes page
     """
     find_recipe = Recipes.query.get_or_404(recipe_id)
-    if current_user.is_admin == True or current_user.id == find_recipe.user_id:
+    if current_user.is_admin is True or current_user.id == find_recipe.user_id:
         recipe = Recipes.query.get_or_404(recipe_id)
         db.session.delete(recipe)
         db.session.commit()
@@ -311,16 +311,17 @@ def expand_recipe(recipe_id):
         recipe_owner=recipe_owner)
 
 
-"""
-Error handling section
-"""
-
-
 @app.errorhandler(500)
 def page_not_found(e):
+    """
+    Error handler for bad form submission
+    """
     return render_template('500.html'), 500
 
 
 @app.errorhandler(404)
 def page_not_found(e):
+    """
+    Error handler for 404
+    """
     return render_template('404.html'), 404
