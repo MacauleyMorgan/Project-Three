@@ -393,6 +393,12 @@ The edit recipe page analysis from lighthouse is as follows.
 
 ![Lighthouse testing Edit Recipe](/cookbook/docs/testing/lighthouse/edit-recipe-lighthouse.png "Lighthouse testing Edit Recipe")
 
+### Expand Recipe
+
+The expand recipe page analysis from lighthouse is as follows.
+
+![Lighthouse testing Expand Recipe](/cookbook/docs/testing/lighthouse/expand-recipe-lighthouse.png "Lighthouse testing Expand Recipe")
+
 ### Recipes
 
 When assessing the recipes page in lighthouse, it returns these values.
