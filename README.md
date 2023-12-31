@@ -407,13 +407,13 @@ When assessing the recipes page in lighthouse, it returns these values.
 
 ### Sign up
 
-The sign-up page was also assessed, the report purported the following. The page unfortunately did not return as high a score as the others majoritively due to unused JavaScript. These scripts are inherited from the base template as initializes site wide.
+The sign-up page was also assessed, the report purported the following.
 
 ![Lighthouse testing Sign up](/cookbook/docs/testing/lighthouse/signup-lighthouse.png "Lighthouse testing Sign up")
 
 ### Login
 
-The login page was also assessed and returned the following, again this page was negatively impacted during these tests by loading unused JavaScript on the page as a result of inheriting from the base template.
+The login page was also assessed and returned the following.
 
 ![Lighthouse testing Login](/cookbook/docs/testing/lighthouse/login-lighthouse.png "Lighthouse testing Login")
  
